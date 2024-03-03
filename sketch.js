@@ -71,6 +71,7 @@ function preload() {
     //playerRight = loadImage("Right.png")
     //playerLeft = loadImage("Left.png")
     //playerDown = loadImage("Down.png")
+
 }
 
 function setup() {
@@ -81,6 +82,7 @@ function setup() {
     //Creates all tiles
     for (let across = 0; across < numAcross; across++) {
         tilemap[across] = [];
+
         for (let down = 0; down < numDown; down++) {
             //Setting Texture For Tile
             let textureNum = graphicMap[down][across];
@@ -89,12 +91,15 @@ function setup() {
             tilemap[across][down] = new Tile(textures[textureNum], across, down, tileSize, tileID); // THIS LINE CREATES OUR NEW TILE!
 
             tileID++;
+
         }
+
     }
     //Tile creation finished
 
     //Create Player
     player = new Player(playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
+
 }
 
 function draw() {
@@ -105,7 +110,9 @@ function draw() {
         for (let down = 0; down < numDown; down++) {
             tilemap[across][down].display(); // runs display() method for each tile!
             tilemap[across][down].debug(); // runs debug() method for each tile!
+
         }
+
     }
     // Finishes looping through all tiles within each draw() loop
 
@@ -116,6 +123,7 @@ function draw() {
 
 function keyPressed() {
     player.setDirection();
+
 }
 
 class Player {
@@ -185,7 +193,9 @@ class Player {
 
             //With the direction set, we can now move to the next code block to check if we can move!
             this.checkTargetTile();
+
         }
+
     }
 
     //This checks what tile the player wants to move to and if
@@ -217,8 +227,11 @@ class Player {
                 
                 //Because the player is ready to move there, we can set isMoving to true!
                 this.isMoving = true;
+
             }
+
         }
+
     }
 
     move() {
@@ -235,14 +248,19 @@ class Player {
                 this.isMoving = false;
                 this.dirX = 0;
                 this.dirY = 0;
+
             }
+
         }
+
     }
 
     display() {
         imageMode(CORNER);
         image(this.sprite, this.xPos, this.yPos, this.size, this.size);
+
     }
+
 }
 
 class Tile {
@@ -254,6 +272,7 @@ class Tile {
         this.yPos = down * tileSize; // pixel value generated from down
         this.tileSize = tileSize;
         this.tileID = tileID;
+
     }
 
     display() {
@@ -275,6 +294,7 @@ class Tile {
         
         text(this.tileID, this.xPos, this.yPos);
     } // I've hidden the DEBUG method but this is where the code for it goes!
+    
 }
 
 // class Enemy(){}
