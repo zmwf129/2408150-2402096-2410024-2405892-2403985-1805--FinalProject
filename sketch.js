@@ -6,6 +6,7 @@ let tileSize = 50;
 let textures = [];
 
 let graphicMap = [ 
+    // I added the different texture numbers to the map to create the environment
 //         THIS IS OUR Y AXIS
 //   0  1  2  3  4  5  6  7  8  9 
     [0, 1, 0, 0, 1, 0, 0, 0, 0, 1], // 0
@@ -21,6 +22,7 @@ let graphicMap = [
 ]
 
 let tileRules = [ 
+    // I replaced every 0 with a 1 to stop the player from walking on the acid
     //         THIS IS OUR Y AXIS
     //   0  1  2  3  4  5  6  7  8  9 
     [1, 0, 1, 1, 0, 1, 1, 1, 1, 0], // 0
