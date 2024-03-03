@@ -9,7 +9,7 @@ let graphicMap = [
     // I added the different texture numbers to the map to create the environment
 //         THIS IS OUR Y AXIS
 //   0  1  2  3  4  5  6  7  8  9 
-    [0, 1, 0, 0, 1, 0, 0, 0, 0, 1], // 0
+    [11, 17, 12, 0, 1, 0, 0, 0, 0, 1], // 0
     [0, 1, 0, 0, 2, 9, 0, 4, 10, 8], // 1
     [10, 8, 9, 0, 0, 1, 0, 1, 0, 0], // 2
     [0, 0, 1, 0, 0, 7, 10, 5, 0, 0], // 3
@@ -17,15 +17,15 @@ let graphicMap = [
     [0, 0, 2, 9, 0, 1, 0, 0, 1, 0], // 5
     [0, 0, 0, 1, 0, 1, 0, 0, 1, 0], // 6
     [0, 0, 0, 7, 10, 5, 0, 0, 1, 0], // 7
-    [4, 10, 10, 3, 0, 1, 0, 4, 8, 10], // 8
-    [1, 0, 0, 0, 0, 1, 0, 1, 0, 0]  // 9
+    [4, 10, 10, 3, 0, 1, 0, 10, 8, 10], // 8
+    [1, 0, 0, 0, 15, 20, 16, 0, 0, 0]  // 9
 ]
 
 let tileRules = [ 
     // I replaced every 0 with a 1 to stop the player from walking on the acid
     //         THIS IS OUR Y AXIS
     //   0  1  2  3  4  5  6  7  8  9 
-    [1, 0, 1, 1, 0, 1, 1, 1, 1, 0], // 0
+    [0, 0, 0, 1, 0, 1, 1, 1, 1, 0], // 0
     [1, 0, 1, 1, 0, 0, 1, 0, 0, 0], // 1
     [0, 0, 0, 1, 1, 0, 1, 0, 1, 1], // 2
     [1, 1, 0, 1, 1, 0, 0, 0, 1, 1], // 3
@@ -34,7 +34,7 @@ let tileRules = [
     [1, 1, 1, 0, 1, 0, 1, 1, 0, 1], // 6
     [1, 1, 1, 0, 0, 0, 1, 1, 0, 1], // 7
     [0, 0, 0, 0, 1, 0, 1, 0, 0, 0], // 8
-    [0, 1, 1, 1, 1, 0, 1, 0, 1, 1]
+    [0, 1, 1, 1, 0, 0, 0, 1, 1, 1]
     ]
 
     //INITIALISE VARIABLES FOR PLAYER
@@ -55,6 +55,17 @@ function preload() {
     textures[8] = loadImage("3wayTLR.png");
     textures[9] = loadImage("PipeLeft.png");
     textures[10] = loadImage("PipeSide.png");
+    textures[11] = loadImage("PlatformBL.png");
+    textures[12] = loadImage("PlatformBR.png");
+    textures[13] = loadImage("PlatformCB.png");
+    textures[14] = loadImage("PlatformF.png");
+    textures[15] = loadImage("PlatformTL.png");
+    textures[16] = loadImage("PlatformTR.png");
+    textures[17] = loadImage("PlatformCDC.png");
+    textures[18] = loadImage("PlatformCRC.png");
+    textures[19] = loadImage("PlatformCLC.png");
+    textures[20] = loadImage("PlatformCUC.png");
+    
 
     playerSprite = loadImage("Forward.png");
     //playerRight = loadImage("Right.png")
@@ -157,7 +168,7 @@ class Player {
             if (key === "s") {
                 this.dirX = 0;
                 this.dirY = 1; //direction is down!
-                playerDown
+               //playerDown
             }
 
             //LEFT
