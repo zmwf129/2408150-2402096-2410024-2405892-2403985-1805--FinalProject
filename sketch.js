@@ -67,7 +67,7 @@ function preload() {
     textures[20] = loadImage("PlatformCUC.png");
     
 
-    playerSprite = loadImage("Forward.png");
+    playerSprite = loadImage("Downward.png");
     //playerRight = loadImage("Right.png")
     //playerLeft = loadImage("Left.png")
     //playerDown = loadImage("Down.png")
@@ -276,3 +276,7 @@ class Tile {
         text(this.tileID, this.xPos, this.yPos);
     } // I've hidden the DEBUG method but this is where the code for it goes!
 }
+
+// class Enemy(){}
+
+// class Boss(){}
