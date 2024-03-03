@@ -39,7 +39,11 @@ let tileRules = [
 
     //INITIALISE VARIABLES FOR PLAYER
 let player;
-let playerSprite, playerUp, playerRight, playerLeft, playerDown;
+let playerSprite; 
+let playerUp; 
+let playerRight;
+let playerLeft; 
+let playerDown;
 let playerSpeed = 5;
 let playerSize = tileSize;
 
@@ -67,10 +71,10 @@ function preload() {
     textures[20] = loadImage("PlatformCUC.png");
     
 
-    playerSprite = loadImage("1709495960106.png");
-    //playerRight = loadImage("Right.png")
-    //playerLeft = loadImage("Left.png")
-    //playerDown = loadImage("Down.png")
+    playerSprite = loadImage("Forward.png");
+    // playerRight = loadImage("Right.png")
+   // playerLeft = loadImage("Left.png")
+   // playerDown = loadImage("Downward.png")
 
 }
 
@@ -98,8 +102,10 @@ function setup() {
     //Tile creation finished
 
     //Create Player
-    player = new Player(playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
-
+    playerSprite = new Player (playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
+   // playerRight = new Player (playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
+   // playerLeft = new Player (playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
+   // playerDownward = new Player (playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
 }
 
 function draw() {
@@ -116,13 +122,28 @@ function draw() {
     }
     // Finishes looping through all tiles within each draw() loop
 
-    player.display();
-    player.move();
+    playerSprite.display();
+    playerSprite.move();
+
+    // playerRight.display();
+    // playerRight.move();
+
+    // playerLeft.display();
+    // playerLeft.move();
+
+    // playerDownward.display();
+    // playerDownward.move();
     
 }
 
 function keyPressed() {
-    player.setDirection();
+    playerSprite.setDirection();
+
+    //playerRight.setDirection();
+
+    //playerLeft.setDirection();
+
+    //playerDownward.setDrection();
 
 }
 
