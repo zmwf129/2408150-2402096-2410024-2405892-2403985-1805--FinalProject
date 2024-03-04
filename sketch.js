@@ -129,7 +129,7 @@ function setup() {
     //Tile creation finished
 
     //Create Player
-    playerSprite = new Player (playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
+    player = new Player (playerSprites, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
 
 }
 
@@ -160,8 +160,8 @@ function draw() {
     stroke(255);
     text('score: ' + score, 450, 10);
 
-    playerSprite.display();
-    playerSprite.move();
+    player.display();
+    player.move();
 
 
 
@@ -176,7 +176,7 @@ function draw() {
 }
 
 function keyPressed() {
-    playerSprite.setDirection();
+    player.setDirection();
 
     if (key === '  ')   {
        var bullet = new Bullet(playerSprite, playeSprite);
@@ -192,7 +192,7 @@ class Player {
         this.sprites = sprites;
 
         //set current sprite, we'll initialise it down for now
-        this.currentSprite = this.sprites.down;
+        this.currentSprite = this.sprites.Down;
 
         //Store starting tile info. Later, we will use these to store the current tile the player is on.
         this.across = startAcross;
