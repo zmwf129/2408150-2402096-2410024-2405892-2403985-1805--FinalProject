@@ -47,7 +47,11 @@ let playerSpeed = 5;
 let playerSize = tileSize;
 
 function preload() {
+
+    // BACKGROUND
     textures[0] = loadImage("Acid.png");
+
+    // PIPES
     textures[1] = loadImage("PipeStraight.png")
     textures[2] = loadImage("PipeRightUp.png")
     textures[3] = loadImage("PipeLeftUp.png");
@@ -58,6 +62,8 @@ function preload() {
     textures[8] = loadImage("3wayTLR.png");
     textures[9] = loadImage("PipeLeft.png");
     textures[10] = loadImage("PipeSide.png");
+
+    //PLATFORMS
     textures[11] = loadImage("PlatformBL.png");
     textures[12] = loadImage("PlatformBR.png");
     textures[13] = loadImage("PlatformCB.png");
@@ -68,6 +74,9 @@ function preload() {
     textures[18] = loadImage("PlatformCRC.png");
     textures[19] = loadImage("PlatformCLC.png");
     textures[20] = loadImage("PlatformCUC.png");
+
+    // LVL 1 RATS
+    // textures[21] = loadImage("")
 
 }
 
