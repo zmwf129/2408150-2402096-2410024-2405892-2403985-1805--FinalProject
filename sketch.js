@@ -6,6 +6,9 @@ let tileSize = 50;
 let textures = [];
 let score = 0;
 
+//Bullet variable
+let bullet = [];
+
 let graphicMap = [ 
     // I added the different texture numbers to the map to create the environment
 //         THIS IS OUR Y AXIS
@@ -40,16 +43,16 @@ let tileRules = [
 
     //INITIALISE VARIABLES FOR PLAYER
 let player;
-let playerSprite; 
-let playerUp; 
-let playerRight;
-let playerLeft; 
-let playerDown;
+let playerSprite = {}; 
 let playerSpeed = 5;
 let playerSize = tileSize;
 
 function preload() {
+
+    // BACKGROUND
     textures[0] = loadImage("Acid.png");
+
+    // PIPES
     textures[1] = loadImage("PipeStraight.png")
     textures[2] = loadImage("PipeRightUp.png")
     textures[3] = loadImage("PipeLeftUp.png");
@@ -60,6 +63,8 @@ function preload() {
     textures[8] = loadImage("3wayTLR.png");
     textures[9] = loadImage("PipeLeft.png");
     textures[10] = loadImage("PipeSide.png");
+
+    //PLATFORMS
     textures[11] = loadImage("PlatformBL.png");
     textures[12] = loadImage("PlatformBR.png");
     textures[13] = loadImage("PlatformCB.png");
@@ -70,17 +75,35 @@ function preload() {
     textures[18] = loadImage("PlatformCRC.png");
     textures[19] = loadImage("PlatformCLC.png");
     textures[20] = loadImage("PlatformCUC.png");
-    
 
-    playerSprite = loadImage("Forward.png");
-    // playerRight = loadImage("Right.png")
-   // playerLeft = loadImage("Left.png")
-   // playerDown = loadImage("Downward.png")
+    // PLAYER SPRITE
+    playerSprite = loadImage("SpriteForward.png")
+    // playerLeft = loadImage("SpriteLeft.png");
+    // playerRight = loadImage("SpriteRight.png");
+
+    // LVL 1 RATS
+    textures[21] = loadImage("RatLeft.png");
+    textures[22] = loadImage("RatRight.png");
+    textures[23] = loadImage("RatForward.png");
+    textures[24] = loadImage("RatDownward.png");
+
+    //Our player
+    playerSprite = loadImage("SpriteForward.png")
+
+    playerSprites = {
+        Up: loadImage("SpriteForward.png"),
+        Down: loadImage("SpriteBackward.png"),
+        Left: loadImage("SpriteLeft.png"),
+        Right: loadImage("SpriteRight.png")
+
+    }
 
 }
 
 function setup() {
     createCanvas(500, 500);
+
+    bullet = new Bullet(playerSprite, playerSprite);
 
     let tileID = 0; // sets our tileID for the first tile we'll make
 
@@ -104,9 +127,7 @@ function setup() {
 
     //Create Player
     playerSprite = new Player (playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
-   // playerRight = new Player (playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
-   // playerLeft = new Player (playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
-   // playerDownward = new Player (playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
+
 }
 
 function draw() {
@@ -122,6 +143,12 @@ function draw() {
         }
 
     }
+
+    for (var i = 0; i < bullet.length; i++) {
+        bullet[i].show();
+        bullet[i].move();
+        }
+
     // Finishes looping through all tiles within each draw() loop
     textAlign(CENTER, TOP);
     textSize(25);
@@ -133,6 +160,8 @@ function draw() {
     playerSprite.display();
     playerSprite.move();
 
+
+
     // playerRight.display();
     // playerRight.move();
 
@@ -140,19 +169,17 @@ function draw() {
     // playerLeft.move();
 
     // playerDownward.display();
-    // playerDownward.move();
-
-    
+    // playerDownward.move(); 
 }
 
 function keyPressed() {
     playerSprite.setDirection();
 
-    //playerRight.setDirection();
-
-    //playerLeft.setDirection();
-
-    //playerDownward.setDrection();
+    if (key === '  ')   {
+       var bullet = new Bullet(playerSprite, playeSprite);
+       bullet.push(bullet);
+       console.log("shot");
+    }
 
 }
 
