@@ -6,7 +6,7 @@ let tileSize = 50;
 let textures = [];
 
 //Bullet variable
-//let bullet = [];
+let bullet = [];
 
 let graphicMap = [ 
     // I added the different texture numbers to the map to create the environment
