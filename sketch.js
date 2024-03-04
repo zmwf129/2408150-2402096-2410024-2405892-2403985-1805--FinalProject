@@ -76,11 +76,6 @@ function preload() {
     textures[19] = loadImage("PlatformCLC.png");
     textures[20] = loadImage("PlatformCUC.png");
 
-    // PLAYER SPRITE
-    playerSprite = loadImage("SpriteForward.png")
-    // playerLeft = loadImage("SpriteLeft.png");
-    // playerRight = loadImage("SpriteRight.png");
-
     // LVL 1 RATS
     RatSprites = {
         RatLnorm: loadImage("RatLeft.png"),
@@ -106,8 +101,6 @@ function preload() {
 function setup() {
     createCanvas(500, 500);
 
-    bullet = new Bullet(playerSprite, playerSprite);
-
     let tileID = 0; // sets our tileID for the first tile we'll make
 
     //Creates all tiles
@@ -130,6 +123,9 @@ function setup() {
 
     //Create Player
     player = new Player (playerSprites, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
+
+    //Creating the bullet
+    bullet = new Bullet(width/2, height/2);
 
 }
 
@@ -163,23 +159,19 @@ function draw() {
     player.display();
     player.move();
 
-
-
-    // playerRight.display();
-    // playerRight.move();
-
-    // playerLeft.display();
-    // playerLeft.move();
-
-    // playerDownward.display();
-    // playerDownward.move(); 
 }
+
+function keyReleased() {
+    if (key != ' ') {
+      player.setDir(0);
+    }
+  }
 
 function keyPressed() {
     player.setDirection();
 
     if (key === '  ')   {
-       var bullet = new Bullet(playerSprite, playeSprite);
+       var bullet = new Bullet(player.x, height);
        bullet.push(bullet);
        console.log("shot");
     }

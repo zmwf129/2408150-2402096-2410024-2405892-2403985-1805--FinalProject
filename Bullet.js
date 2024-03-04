@@ -1,16 +1,18 @@
-function Bullet(x, y){
+
+function Bullet(x, y) {
     this.x = x;
     this.y = y;
-
+    this.r = 8;
+    this.toDelete = false;
+  
     this.show = function() {
-        noStroke();
-        fill(50, 0, 200);
-        rect(this.x, this.y, 20, 20);
+      noStroke();
+      fill(150, 0, 255);
+      ellipse(this.x, this.y, this.r*2, this.r*2);
     }
-
+  
     this.move = function() {
-        this.y = this.y -1;
-
+      this.y = this.y - 5;
     }
-    
-}
+  
+  }
