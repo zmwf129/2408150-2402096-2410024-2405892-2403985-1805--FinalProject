@@ -77,11 +77,12 @@ function preload() {
     textures[20] = loadImage("PlatformCUC.png");
 
     // LVL 1 RATS
-    RatSprites = {
-        RatLnorm: loadImage("RatLeft.png"),
-        RatRnorm: loadImage("RatRight.png"),
-        RatFnorm: loadImage("RatForward.png"),
-        RatDnorm: loadImage("RatDownward.png")
+    let rat;
+    ratSprites = {
+        ratLnorm: loadImage("RatLeft.png"),
+        ratRnorm: loadImage("RatRight.png"),
+        ratFnorm: loadImage("RatForward.png"),
+        ratDnorm: loadImage("RatDownward.png")
 
     }
 
@@ -125,7 +126,10 @@ function setup() {
     player = new Player (playerSprites, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
 
     //Creating the bullet
-    bullet = new Bullet(width/2, height/2);
+    bullet = new Bullet (width/2, height/2);
+
+    //Creating the rats
+    enemy = new Enemy (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 }
 
@@ -159,6 +163,8 @@ function draw() {
     player.display();
     player.move();
 
+    //showing the rats
+    rat.display();
 }
 
 function keyReleased() {
@@ -354,9 +360,70 @@ class Tile {
 
 }
 
-//class EnemyLVL1{
-  //  constructor()
+class EnemyLVL1{
+    constructor(sprites, startAcross, startDown, size, speed, tileSize, tileRules) {
+        //Attach sprite to key in object
+        this.sprites = sprites;
+
+        //set current sprite, we'll initialise it down for now
+        this.currentSprite = this.sprites.Down;
+
+        //Store starting tile info. Later, we will use these to store the current tile the player is on.
+        this.across = startAcross;
+        this.down = startDown;
+        
+        //convert tile coordinates into pixel coordinates
+        this.xPos = this.across * tileSize;
+        this.yPos = this.down * tileSize;
+
+        //storing size and speed
+        this.size = size;
+        this.speed = speed;
+
+        //Check rules/collisions for the tile the player wants to move to (target Tile)
+        this.tileRules = tileRules;
+        this.tileSize = tileSize;
+        }
     
-//}
+
+
+    // Need to edit it for just rats and not the player
+    //This checks what tile the player wants to move to and if
+    //the player is allowed to move there
+    checkTargetTile() {
+        //First, get what tile the player is currently on
+        this.across = Math.floor(this.xPos / this.tileSize);
+        this.down = Math.floor(this.yPos / this.tileSize);
+
+        //Calculate the coordinates of the target tile
+        let nextTileHorizontal = this.across + this.dirX;
+        let nextTileVertical = this.down + this.dirY;
+
+        //check is that tile is in bounds of the map
+        // remember: && means AND (i.e. below is asking if ALL conditions are true)
+        if (
+            
+            nextTileHorizontal >= 0 && //top of map
+            nextTileHorizontal < numAcross && //bottom of map
+            nextTileVertical >= 0 && //left edge of map
+            nextTileVertical < numDown //right edge of map
+        ) {
+            //if it is in bounds, have we set it as moveable in our ruleMap:
+            if (this.tileRules[nextTileVertical][nextTileHorizontal] != 1) { // remember we have to swap these!
+                //if the target tile is walkable, then...
+                //...calculate the precise x and y coordinate of the target tile...
+                this.tx = nextTileHorizontal * this.tileSize;
+                this.ty = nextTileVertical * this.tileSize;
+
+            }
+
+        }
+
+    }
+}
+
+
+
+//enemy = new Enemy (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 // class Boss(){}
