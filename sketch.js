@@ -42,7 +42,7 @@ let tileRules = [
 
     //INITIALISE VARIABLES FOR PLAYER
 let player;
-let playerSprite = {}; 
+let playerSprite = {}; //creating an empty playerSprite game object
 let playerSpeed = 5;
 let playerSize = tileSize;
 
@@ -81,17 +81,20 @@ function preload() {
     // playerRight = loadImage("SpriteRight.png");
 
     // LVL 1 RATS
-    textures[21] = loadImage("RatLeft.png");
-    textures[22] = loadImage("RatRight.png");
-    textures[23] = loadImage("RatForward.png");
-    textures[24] = loadImage("RatDownward.png");
+    RatSprites = {
+        RatLnorm: loadImage("RatLeft.png"),
+        RatRnorm: loadImage("RatRight.png"),
+        RatFnorm: loadImage("RatForward.png"),
+        RatDnorm: loadImage("RatDownward.png")
+
+    }
 
     //Our player
     playerSprite = loadImage("SpriteForward.png")
 
     playerSprites = {
         Up: loadImage("SpriteForward.png"),
-        Down: loadImage("SpriteBackward.png"),
+        Down: loadImage("SpriteDownward.png"),
         Left: loadImage("SpriteLeft.png"),
         Right: loadImage("SpriteRight.png")
 
@@ -166,9 +169,12 @@ function keyPressed() {
 }
 
 class Player {
-    constructor(sprite, startAcross, startDown, size, speed, tileSize, tileRules) {
+    constructor(sprites, startAcross, startDown, size, speed, tileSize, tileRules) {
         //Attach sprite to key in object
-        this.sprite = sprite;
+        this.sprites = sprites;
+
+        //set current sprite, we'll initialise it down for now
+        this.currentSprite = this.sprites.down;
 
         //Store starting tile info. Later, we will use these to store the current tile the player is on.
         this.across = startAcross;
@@ -208,26 +214,28 @@ class Player {
             if (key === "w") {
                 this.dirX = 0;
                 this.dirY = -1; //direction is up!
-                
+                this.currentSprite = this.sprites.Up
             }
 
             //DOWN
             if (key === "s") {
                 this.dirX = 0;
                 this.dirY = 1; //direction is down!
-               //playerDown
+                this.currentSprite = this.sprites.Down
             }
 
             //LEFT
             if (key === "a") {
                 this.dirX = -1; //direction is left!
                 this.dirY = 0; 
+                this.currentSprite = this.sprites.Left
             }
 
             //RIGHT
             if (key === "d") {
                 this.dirX = 1; //direction is right!
                 this.dirY = 0;
+                this.currentSprite = this.sprites.Right
             }
 
             //With the direction set, we can now move to the next code block to check if we can move!
@@ -296,7 +304,7 @@ class Player {
 
     display() {
         imageMode(CORNER);
-        image(this.sprite, this.xPos, this.yPos, this.size, this.size);
+        image(this.currentSprite, this.xPos, this.yPos, this.size, this.size);
 
     }
 
@@ -336,6 +344,9 @@ class Tile {
 
 }
 
-// class Enemy(){}
+//class EnemyLVL1{
+  //  constructor()
+    
+//}
 
 // class Boss(){}
