@@ -75,8 +75,13 @@ function preload() {
     textures[19] = loadImage("PlatformCLC.png");
     textures[20] = loadImage("PlatformCUC.png");
 
+    // PLAYER SPRITE
+
     // LVL 1 RATS
-    // textures[21] = loadImage("")
+    textures[21] = loadImage("RatLeft.png");
+    textures[22] = loadImage("RatRight.png");
+    textures[23] = loadImage("RatForward.png");
+    textures[24] = loadImage("RatDownward.png");
 
 }
 
