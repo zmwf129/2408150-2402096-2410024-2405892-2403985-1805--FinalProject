@@ -83,7 +83,7 @@ function preload() {
 function setup() {
     createCanvas(500, 500);
 
-    bullet = new Bullet(width/2, height/2);
+    bullet = new Bullet(playerSprite, playerSprite);
 
     
 
@@ -152,7 +152,7 @@ function keyPressed() {
     playerSprite.setDirection();
 
     if (key === '  ')   {
-       var bullet = new Bullet(this.size, this.size);
+       var bullet = new Bullet(playerSprite, playeSprite);
        bullet.push(bullet);
     }
 
