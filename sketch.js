@@ -42,7 +42,7 @@ let tileRules = [
 
     //INITIALISE VARIABLES FOR PLAYER
 let player;
-let playerSprite; 
+let playerSprite = {}; 
 let playerSpeed = 5;
 let playerSize = tileSize;
 
@@ -84,7 +84,15 @@ function preload() {
     textures[24] = loadImage("RatDownward.png");
 
     //Our player
-    playerSprite = loadImage("SpriteForward.png")
+    playerSprite = loadImage("SpriteForward.png");
+
+    playerSprites = {
+        Up: loadImage("SpriteForward.png"),
+        Down: loadImage("SpriteBackward.png"),
+        Left: loadImage("SpriteLeft.png"),
+        Right: loadImage("SpriteRight.png")
+
+    }
 
 }
 
