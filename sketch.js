@@ -78,14 +78,15 @@ function preload() {
     // LVL 1 RATS
     // textures[21] = loadImage("")
 
+    //Our player
+    playerSprite = loadImage("SpriteForward.png")
+
 }
 
 function setup() {
     createCanvas(500, 500);
 
     bullet = new Bullet(playerSprite, playerSprite);
-
-    
 
     let tileID = 0; // sets our tileID for the first tile we'll make
 
@@ -109,9 +110,7 @@ function setup() {
 
     //Create Player
     playerSprite = new Player (playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
-   // playerRight = new Player (playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
-   // playerLeft = new Player (playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
-   // playerDownward = new Player (playerSprite, 2, 3, tileSize, playerSpeed, tileSize, tileRules);
+
 }
 
 function draw() {
@@ -136,15 +135,6 @@ function draw() {
 
     playerSprite.display();
     playerSprite.move();
-
-    // playerRight.display();
-    // playerRight.move();
-
-    // playerLeft.display();
-    // playerLeft.move();
-
-    // playerDownward.display();
-    // playerDownward.move();
     
 }
 
@@ -154,13 +144,8 @@ function keyPressed() {
     if (key === '  ')   {
        var bullet = new Bullet(playerSprite, playeSprite);
        bullet.push(bullet);
+       console.log("shot");
     }
-
-    //playerRight.setDirection();
-
-    //playerLeft.setDirection();
-
-    //playerDownward.setDrection();
 
 }
 
