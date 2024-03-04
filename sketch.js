@@ -5,6 +5,9 @@ let numAcross = 10;
 let tileSize = 50;
 let textures = [];
 
+//Bullet variable
+//let bullet = [];
+
 let graphicMap = [ 
     // I added the different texture numbers to the map to create the environment
 //         THIS IS OUR Y AXIS
@@ -40,10 +43,6 @@ let tileRules = [
     //INITIALISE VARIABLES FOR PLAYER
 let player;
 let playerSprite; 
-let playerUp; 
-let playerRight;
-let playerLeft; 
-let playerDown;
 let playerSpeed = 5;
 let playerSize = tileSize;
 
@@ -69,17 +68,15 @@ function preload() {
     textures[18] = loadImage("PlatformCRC.png");
     textures[19] = loadImage("PlatformCLC.png");
     textures[20] = loadImage("PlatformCUC.png");
-    
-
-    playerSprite = loadImage("Forward.png");
-    // playerRight = loadImage("Right.png")
-   // playerLeft = loadImage("Left.png")
-   // playerDown = loadImage("Downward.png")
 
 }
 
 function setup() {
     createCanvas(500, 500);
+
+    bullet = new Bullet(width/2, height/2);
+
+    
 
     let tileID = 0; // sets our tileID for the first tile we'll make
 
@@ -120,6 +117,12 @@ function draw() {
         }
 
     }
+
+    for (var i = 0; i < bullet.length; i++) {
+        bullet[i].show();
+        bullet[i].move();
+        }
+
     // Finishes looping through all tiles within each draw() loop
 
     playerSprite.display();
@@ -138,6 +141,11 @@ function draw() {
 
 function keyPressed() {
     playerSprite.setDirection();
+
+    if (key === '  ')   {
+       var bullet = new Bullet(this.size, this.size);
+       bullet.push(bullet);
+    }
 
     //playerRight.setDirection();
 
