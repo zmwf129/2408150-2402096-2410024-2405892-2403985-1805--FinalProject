@@ -4,6 +4,7 @@ let numDown = 10;
 let numAcross = 10;
 let tileSize = 50;
 let textures = [];
+let score = 0;
 
 let graphicMap = [ 
     // I added the different texture numbers to the map to create the environment
@@ -111,6 +112,7 @@ function setup() {
 function draw() {
     background(0);
     
+    
     // Loops through all tiles each time draw() is called
     for (let across = 0; across < numAcross; across++) {
         for (let down = 0; down < numDown; down++) {
@@ -121,6 +123,12 @@ function draw() {
 
     }
     // Finishes looping through all tiles within each draw() loop
+    textAlign(CENTER, TOP);
+    textSize(25);
+    fill(0);
+    strokeWeight(4);
+    stroke(255);
+    text('score: ' + score, 450, 10);
 
     playerSprite.display();
     playerSprite.move();
@@ -133,6 +141,7 @@ function draw() {
 
     // playerDownward.display();
     // playerDownward.move();
+
     
 }
 
