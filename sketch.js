@@ -428,6 +428,7 @@ class EnemyLVL1{
         noStroke();
         image(this.texture, this.xPos, this.yPos, this.tileSize, this.tileSize)
     }
+    
 }
 
 
