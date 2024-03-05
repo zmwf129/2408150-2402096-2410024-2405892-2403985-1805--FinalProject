@@ -129,7 +129,7 @@ function setup() {
     bullet = new Bullet (width/2, height/2);
 
     //Creating the rats
-    enemy = new Enemy (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
+    rat = new Rat (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 }
 
