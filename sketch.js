@@ -48,6 +48,7 @@ let playerSpeed = 5;
 let playerSize = tileSize;
 
 // LVL 1 RATS
+// Had to comment everything to do with the rats other than the rat class becuase it says in the console that rat is not defined
 //let rat;
 //let ratSprite = {};
 //let ratSpeed = 3;
