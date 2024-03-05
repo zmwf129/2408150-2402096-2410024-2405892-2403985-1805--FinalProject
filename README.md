@@ -33,7 +33,7 @@ Baar: Write here
 Freddie: Write here
 <<<<<<< HEAD
 
-River: Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers, three levels with gradually stronger, but fewer enemies, with one final boss at the end, where it is revealed that the mutated rats have been drawing their power from improperly disposed nuclear waste. Added the assets (acid, pipes and sprites), created the collisions on the tilemap so the player can't walk onto the acid, made it so the sprite would face the direction the player inputed (W is forward), started to create the enemy class, added the player assets to the code so the assets would appear and be controllable. 
+River: Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers and with one final boss at the end. Added the assets (acid, pipes and sprites), created the collisions on the tilemap so the player can't walk onto the acid, made it so the sprite would face the direction the player inputed (W is forward), started to create the enemy class, added the player assets to the code so the assets would appear and be controllable. 
 
 Velvet: - Game conceptualisation and structure/outline - Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers, three levels with gradually stronger, but fewer enemies, with one final boss at the end, where it is revealed that the mutated rats have been drawing their power from improperly disposed nuclear waste. Worked with River to determine the details of where and how assets will be used in the game.
 - Included the variables for the score system
