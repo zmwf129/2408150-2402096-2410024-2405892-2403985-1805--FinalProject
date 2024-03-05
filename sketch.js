@@ -47,6 +47,12 @@ let playerSprite = {}; //creating an empty playerSprite game object
 let playerSpeed = 5;
 let playerSize = tileSize;
 
+// LVL 1 RATS
+//let rat;
+//let ratSprite = {};
+//let ratSpeed = 3;
+//let ratSize = tileSize;
+
 function preload() {
 
     // BACKGROUND
@@ -76,8 +82,9 @@ function preload() {
     textures[19] = loadImage("PlatformCLC.png");
     textures[20] = loadImage("PlatformCUC.png");
 
-    // LVL 1 RATS
-    let rat;
+   
+    //ratSprite = loadImage("RatLeft.png");
+
     ratSprites = {
         ratLnorm: loadImage("RatLeft.png"),
         ratRnorm: loadImage("RatRight.png"),
@@ -129,7 +136,7 @@ function setup() {
     bullet = new Bullet (width/2, height/2);
 
     //Creating the rats
-    rat = new Rat (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
+    //rat = new Rat (ratSprite, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 }
 
@@ -164,14 +171,8 @@ function draw() {
     player.move();
 
     //showing the rats
-    rat.display();
+    //rat.display();
 }
-
-function keyReleased() {
-    if (key != ' ') {
-      player.setDir(0);
-    }
-  }
 
 function keyPressed() {
     player.setDirection();
@@ -185,6 +186,7 @@ function keyPressed() {
 }
 
 class Player {
+
     constructor(sprites, startAcross, startDown, size, speed, tileSize, tileRules) {
         //Attach sprite to key in object
         this.sprites = sprites;
@@ -361,7 +363,7 @@ class Tile {
 }
 
 class EnemyLVL1{
-    constructor(sprites, startAcross, startDown, size, speed, tileSize, tileRules) {
+    constructor(sprites, startAcross, startDown, size, ratSpeed, tileSize, tileRules) {
         //Attach sprite to key in object
         this.sprites = sprites;
 
@@ -378,7 +380,7 @@ class EnemyLVL1{
 
         //storing size and speed
         this.size = size;
-        this.speed = speed;
+        this.ratSpeed = ratSpeed;
 
         //Check rules/collisions for the tile the player wants to move to (target Tile)
         this.tileRules = tileRules;
@@ -419,6 +421,12 @@ class EnemyLVL1{
 
         }
 
+    }
+
+    display() {
+        //Displays the texture of instance of NPC class
+        noStroke();
+        image(this.texture, this.xPos, this.yPos, this.tileSize, this.tileSize)
     }
 }
 
