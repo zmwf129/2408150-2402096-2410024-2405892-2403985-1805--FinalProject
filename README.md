@@ -1,6 +1,10 @@
 # Coding-Prototype
 Velvet, River, Baar, Amanda, Freddie
 
+MOODBOARD / AESTHETIC APPROACH
+![Rat Attack!](https://github.com/zmwf129/epic-win-side-scroller/assets/149950646/3920be53-363b-4d83-b6e2-7ceecf4efde8)
+
+
 Theme: We are an exterminator in the sewers tasked with neutralizing an out-of-control rat infestation in the city sewers. Something is wrong with these rats...the deeper you go, the weirder they get. Fight through the rabid vermin and discover the source of their power.
 
 3 LEVELS
