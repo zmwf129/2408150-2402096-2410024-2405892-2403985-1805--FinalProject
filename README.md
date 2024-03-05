@@ -30,4 +30,7 @@ Amanda:
 Baar: Write here
 Freddie: Write here
 River: Write here
-Velvet: Write here
+Velvet: - Game conceptualisation and structure/outline - Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers, three levels with gradually stronger, but fewer enemies, with one final boss at the end, where it is revealed that the mutated rats have been drawing their power from improperly disposed nuclear waste. Worked with River to determine the details of where and how assets will be used in the game.
+- Included the variables for the score system
+- Helped fix bugs 
+
