@@ -30,8 +30,8 @@ Amanda:
 
 Baar:
 - Game conceptualisation and structure/outline - Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers.
-- Level design - Conceptualised the RPG format and basic level design e.g. came up with the idea of the player being able to walk on interconnected pipes that are on top of lakes of sewer water, as well as concrete platforms, through various sketches.
-- Miscellaneous graphic design - Created a potential logo for the game through photo editing software (after coming up with the name). Currently designing opening and end screens for the game with potential animations.
+- Level design - Conceptualised the RPG map format and basic level design e.g. came up with the idea of the player being able to walk on interconnected pipes that are on top of lakes of sewer water, as well as concrete platforms, through various sketches.
+- Miscellaneous graphic design - Created a potential logo for the game through photo editing software (after coming up with the name). Currently designing opening and end screens for the game with gif animations.
 
 Freddie: Write here
 <<<<<<< HEAD
