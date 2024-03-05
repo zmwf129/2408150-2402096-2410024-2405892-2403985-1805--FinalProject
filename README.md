@@ -27,7 +27,11 @@ Amanda:
 - Game conceptualisation and structure/outline - Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers, three levels with gradually stronger, but fewer enemies, with one final boss at the end, where it is revealed that the mutated rats have been drawing their power from improperly disposed nuclear waste. Worked with River to determine the details of where and how assets will be used in the game.
 - Audio production (music and SFX) and implementation - Currently in the process of composing a simple soundtrack for the game, as well as creating sound effects (shooting, impact, etc.). I will handle the code relating to implementation of the music and SFX into the game.
 - Created moodboard/aesthetic approach and wrote README (with the exception of the following writing).
-Baar: Write here
-Freddie: Write here
-River: Write here
-Velvet: Write here
+Baar:
+- Write here
+Freddie:
+- Write here
+River:
+- Write here
+Velvet:
+- Write here
