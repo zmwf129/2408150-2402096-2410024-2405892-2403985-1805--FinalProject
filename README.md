@@ -28,14 +28,24 @@ Amanda:
 - Audio production (music and SFX) and implementation - Currently in the process of composing a simple soundtrack for the game, as well as creating sound effects (shooting, impact, etc.). I will handle the code relating to implementation of the music and SFX into the game.
 - Created moodboard/aesthetic approach and wrote README (with the exception of the following writing).
 
-Baar: Write here
+Baar:
+- Game conceptualisation and structure/outline - Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers, three levels with gradually stronger, but fewer enemies, with one final boss at the end, where it is revealed that the mutated rats have been drawing their power from improperly disposed nuclear waste.
+- Level design - Conceptualised the RPG format and basic level design e.g. came up with the idea of the player being able to walk on interconnected pipes that are on top of lakes of sewer water, as well as concrete platforms, through various sketches.
+- Miscellaneous graphic design - Created a potential logo for the game through photo editing software (after coming up with the name). Currently designing opening and end screens for the game with potential animations.
 
 Freddie: Write here
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 River: Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers and with one final boss at the end. Added the assets (acid, pipes and sprites), created the collisions on the tilemap so the player can't walk onto the acid, made it so the sprite would face the direction the player inputed (W is forward), started to create the enemy class, added the player assets to the code so the assets would appear and be controllable. 
+=======
+River: 
+- Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers, three levels with gradually stronger, but fewer enemies, with one final boss at the end, where it is revealed that the mutated rats have been drawing their power from improperly disposed nuclear waste.
+- Added the assets (acid, pipes and sprites), created the collisions on the tilemap so the player can't walk onto the acid, made it so the sprite would face the direction the player inputed (W is forward), started to create the enemy class, added the player assets to the code so the assets would appear and be controllable. 
+>>>>>>> 82ddb64bc5424457ce03d54a88b83bd931f0445c
 
-Velvet: - Game conceptualisation and structure/outline - Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers, three levels with gradually stronger, but fewer enemies, with one final boss at the end, where it is revealed that the mutated rats have been drawing their power from improperly disposed nuclear waste. Worked with River to determine the details of where and how assets will be used in the game.
+Velvet: 
+- Game conceptualisation and structure/outline - Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers, three levels with gradually stronger, but fewer enemies, with one final boss at the end, where it is revealed that the mutated rats have been drawing their power from improperly disposed nuclear waste. Worked with River to determine the details of where and how assets will be used in the game.
 - Included the variables for the score system
 - Helped fix bugs 
 
