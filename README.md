@@ -4,7 +4,7 @@ By Amanda, Baar, Freddie, River, Velvet
 ![Rat Attack! (1)](https://github.com/zmwf129/epic-win-side-scroller/assets/149950646/545e6732-169d-46c7-aca2-75c18da4b506)
 
 ## AESTHETIC
-Rat Attack! has a pixel art style inspired by 2D platformer Toxic 2, as well as Undertale. The assets for Rat Attack! bear a strong resemblance to the aforementioned games (see all pngs in the project). See the image above for more sources of inspiration.
+Rat Attack! has a pixel art style inspired by 2D platformer Toxic 2, as well as Undertale. The assets for Rat Attack! bare a strong resemblance to the aforementioned games (see all pngs in the project). See the image above for more sources of inspiration.
 
 ## OVERVIEW
 Rat Attack! is a 2D side-scroller in which you play as an exterminator tasked with neutralizing the out-of-control rat infestation in the city sewers. Something is wrong with these rats - the deeper you go, the weirder they get. Fight through the rabid vermin and discover the source of their power.
