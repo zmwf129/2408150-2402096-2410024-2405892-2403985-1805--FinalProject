@@ -57,7 +57,7 @@ let playerSize = tileSize;
 function preload() {
 
     // BACKGROUND
-    textures[0] = loadImage("Acid.png");
+    textures[0] = loadImage("Assets/Acid.png");
 
     // PIPES
     textures[1] = loadImage("Assets/PipeStraight.png")
