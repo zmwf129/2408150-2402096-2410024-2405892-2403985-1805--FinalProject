@@ -60,48 +60,48 @@ function preload() {
     textures[0] = loadImage("Acid.png");
 
     // PIPES
-    textures[1] = loadImage("PipeStraight.png")
-    textures[2] = loadImage("PipeRightUp.png")
-    textures[3] = loadImage("PipeLeftUp.png");
-    textures[4] = loadImage("PipeBottomRight.png")
-    textures[5] = loadImage("3wayBLU.png");
-    textures[6] = loadImage("3wayBRL.png");
-    textures[7] = loadImage("3wayBRU.png");
-    textures[8] = loadImage("3wayTLR.png");
-    textures[9] = loadImage("PipeLeft.png");
-    textures[10] = loadImage("PipeSide.png");
+    textures[1] = loadImage("Assets/PipeStraight.png")
+    textures[2] = loadImage("Assets/PipeRightUp.png")
+    textures[3] = loadImage("Assets/PipeLeftUp.png");
+    textures[4] = loadImage("Assets/PipeBottomRight.png")
+    textures[5] = loadImage("Assets/3wayBLU.png");
+    textures[6] = loadImage("Assets/3wayBRL.png");
+    textures[7] = loadImage("Assets/3wayBRU.png");
+    textures[8] = loadImage("Assets/3wayTLR.png");
+    textures[9] = loadImage("Assets/PipeLeft.png");
+    textures[10] = loadImage("Assets/PipeSide.png");
 
     //PLATFORMS
-    textures[11] = loadImage("PlatformBL.png");
-    textures[12] = loadImage("PlatformBR.png");
-    textures[13] = loadImage("PlatformCB.png");
-    textures[14] = loadImage("PlatformF.png");
-    textures[15] = loadImage("PlatformTL.png");
-    textures[16] = loadImage("PlatformTR.png");
-    textures[17] = loadImage("PlatformCDC.png");
-    textures[18] = loadImage("PlatformCRC.png");
-    textures[19] = loadImage("PlatformCLC.png");
-    textures[20] = loadImage("PlatformCUC.png");
+    textures[11] = loadImage("Assets/PlatformBL.png");
+    textures[12] = loadImage("Assets/PlatformBR.png");
+    textures[13] = loadImage("Assets/PlatformCB.png");
+    textures[14] = loadImage("Assets/PlatformF.png");
+    textures[15] = loadImage("Assets/PlatformTL.png");
+    textures[16] = loadImage("Assets/PlatformTR.png");
+    textures[17] = loadImage("Assets/PlatformCDC.png");
+    textures[18] = loadImage("Assets/PlatformCRC.png");
+    textures[19] = loadImage("Assets/PlatformCLC.png");
+    textures[20] = loadImage("Assets/PlatformCUC.png");
 
    
     //ratSprite = loadImage("RatLeft.png");
 
     ratSprites = {
-        ratLnorm: loadImage("RatLeft.png"),
-        ratRnorm: loadImage("RatRight.png"),
-        ratFnorm: loadImage("RatForward.png"),
-        ratDnorm: loadImage("RatDownward.png")
+        ratLnorm: loadImage("Assets/RatLeft.png"),
+        ratRnorm: loadImage("Assets/RatRight.png"),
+        ratFnorm: loadImage("Assets/RatForward.png"),
+        ratDnorm: loadImage("Assets/RatDownward.png")
 
     }
 
     //Our player
-    playerSprite = loadImage("SpriteForward.png")
+    playerSprite = loadImage("Assets/SpriteForward.png")
 
     playerSprites = {
-        Up: loadImage("SpriteForward.png"),
-        Down: loadImage("SpriteDownward.png"),
-        Left: loadImage("SpriteLeft.png"),
-        Right: loadImage("SpriteRight.png")
+        Up: loadImage("Assets/SpriteForward.png"),
+        Down: loadImage("Assets/SpriteDownward.png"),
+        Left: loadImage("Assets/SpriteLeft.png"),
+        Right: loadImage("Assets/SpriteRight.png")
 
     }
 
