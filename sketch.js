@@ -139,21 +139,27 @@ function preload() {
     textures[52] = loadImage("Assets/PlatformBLRW2.png");
     textures[53] = loadImage("Assets/PlatformBLRW3.png");
     textures[54] = loadImage("Assets/PlatformBLSW.png");
+
     textures[55] = loadImage("Assets/PlatformBR.png");
     textures[56] = loadImage("Assets/PlatformBRSW.png");
     textures[57] = loadImage("Assets/PlatformBRRW1.png");
     textures[58] = loadImage("Assets/PlatformBRRW2.png");
     textures[59] = loadImage("Assets/PlatformBRRW3.png");
+
     textures[60] = loadImage("Assets/PlatformCB.png");
+
     textures[61] = loadImage("Assets/PlatformF.png");
+
     textures[62] = loadImage("Assets/PlatformTL.png");
     textures[63] = loadImage("Assets/PlatformTLRW1.png");
     textures[64] = loadImage("Assets/PlatformTLRW2.png");
     textures[65] = loadImage("Assets/PlatformTLSW.png");
+
     textures[66] = loadImage("Assets/PlatformTR.png");
     textures[67] = loadImage("Assets/PlatformTRSW.png");
     textures[68] = loadImage("Assets/PlatformTRRW1.png");
     textures[69] = loadImage("Assets/PlatformTRRW2.png");
+
     textures[70] = loadImage("Assets/PlatformCDC.png");
     textures[71] = loadImage("Assets/PlatformCRC.png");
     textures[72] = loadImage("Assets/PlatformCLC.png");
