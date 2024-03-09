@@ -1,7 +1,7 @@
 //INITIALISE VARIABLES
 let tilemap = [];
-let numDown = 10;
-let numAcross = 10;
+let numDown = 15;
+let numAcross = 15;
 let tileSize = 50;
 let textures = [];
 let score = 0;
@@ -12,33 +12,43 @@ let bullet = [];
 let graphicMap = [ 
     // I added the different texture numbers to the map to create the environment
 //         THIS IS OUR Y AXIS
-//   0  1  2  3  4  5  6  7  8  9 
-    [11, 17, 12, 0, 1, 0, 0, 0, 0, 1], // 0
-    [0, 1, 0, 0, 2, 9, 0, 4, 10, 8], // 1
-    [10, 8, 9, 0, 0, 1, 0, 1, 0, 0], // 2
-    [0, 0, 1, 0, 0, 7, 10, 5, 0, 0], // 3
-    [0, 0, 1, 0, 0, 1, 0, 2, 9, 0], // 4    THIS IS OUR X AXIS
-    [0, 0, 2, 9, 0, 1, 0, 0, 1, 0], // 5
-    [0, 0, 0, 1, 0, 1, 0, 0, 1, 0], // 6
-    [0, 0, 0, 7, 10, 5, 0, 0, 1, 0], // 7
-    [4, 10, 10, 3, 0, 1, 0, 10, 8, 10], // 8
-    [1, 0, 0, 0, 15, 20, 16, 0, 0, 0]  // 9
+//   0  1  2  3  4  5  6  7  8  9  10 11 12 13 14
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 0
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 1
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 2
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 3
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 4    THIS IS OUR X AXIS
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 5
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 6
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 7
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 8
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 9
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 10
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 11
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 12
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 13
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  // 15
 ]
 
 let tileRules = [ 
-    // I replaced every 0 with a 1 to stop the player from walking on the acid
-    //         THIS IS OUR Y AXIS
-    //   0  1  2  3  4  5  6  7  8  9 
-    [0, 0, 0, 1, 0, 1, 1, 1, 1, 0], // 0
-    [1, 0, 1, 1, 0, 0, 1, 0, 0, 0], // 1
-    [0, 0, 0, 1, 1, 0, 1, 0, 1, 1], // 2
-    [1, 1, 0, 1, 1, 0, 0, 0, 1, 1], // 3
-    [1, 1, 0, 1, 1, 0, 1, 0, 0, 1], // 4    THIS IS OUR X AXIS
-    [1, 1, 0, 0, 1, 0, 1, 1, 0, 1], // 5
-    [1, 1, 1, 0, 1, 0, 1, 1, 0, 1], // 6
-    [1, 1, 1, 0, 0, 0, 1, 1, 0, 1], // 7
-    [0, 0, 0, 0, 1, 0, 1, 0, 0, 0], // 8
-    [0, 1, 1, 1, 0, 0, 0, 1, 1, 1]
+// I replaced every 0 with a 1 to stop the player from walking on the acid
+//         THIS IS OUR Y AXIS
+//   0  1  2  3  4  5  6  7  8  9  10 11 12 13 14
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 0
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 1
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 2
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 3
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 4    THIS IS OUR X AXIS
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 5
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 6
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 7
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 8
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 9
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 10
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 11
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 12
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 13
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  // 15
     ]
 
     //INITIALISE VARIABLES FOR PLAYER
@@ -125,28 +135,42 @@ function preload() {
 
     //PLATFORMS
     textures[50] = loadImage("Assets/PlatformBL.png");
-    textures[51] = loadImage("Assets/PlatformBR.png");
-    textures[52] = loadImage("Assets/PlatformCB.png");
-    textures[53] = loadImage("Assets/PlatformF.png");
-    textures[54] = loadImage("Assets/PlatformTL.png");
-    textures[55] = loadImage("Assets/PlatformTR.png");
-    textures[56] = loadImage("Assets/PlatformCDC.png");
-    textures[57] = loadImage("Assets/PlatformCRC.png");
-    textures[58] = loadImage("Assets/PlatformCLC.png");
-    textures[59] = loadImage("Assets/PlatformCUC.png");
+    textures[51] = loadImage("Assets/PlatformBLRW1.png");
+    textures[52] = loadImage("Assets/PlatformBLRW2.png");
+    textures[53] = loadImage("Assets/PlatformBLRW3.png");
+    textures[54] = loadImage("Assets/PlatformBLSW.png");
+    textures[55] = loadImage("Assets/PlatformBR.png");
+    textures[56] = loadImage("Assets/PlatformBRSW.png");
+    textures[57] = loadImage("Assets/PlatformBRRW1.png");
+    textures[58] = loadImage("Assets/PlatformBRRW2.png");
+    textures[59] = loadImage("Assets/PlatformBRRW3.png");
+    textures[60] = loadImage("Assets/PlatformCB.png");
+    textures[61] = loadImage("Assets/PlatformF.png");
+    textures[62] = loadImage("Assets/PlatformTL.png");
+    textures[63] = loadImage("Assets/PlatformTLRW1.png");
+    textures[64] = loadImage("Assets/PlatformTLRW2.png");
+    textures[65] = loadImage("Assets/PlatformTLSW.png");
+    textures[66] = loadImage("Assets/PlatformTR.png");
+    textures[67] = loadImage("Assets/PlatformTRSW.png");
+    textures[68] = loadImage("Assets/PlatformTRRW1.png");
+    textures[69] = loadImage("Assets/PlatformTRRW2.png");
+    textures[70] = loadImage("Assets/PlatformCDC.png");
+    textures[71] = loadImage("Assets/PlatformCRC.png");
+    textures[72] = loadImage("Assets/PlatformCLC.png");
+    textures[73] = loadImage("Assets/PlatformCUC.png");
 
     //Objects In Liquid
-    textures[60] = loadImage("Assets/RadioWRubbish.png");
-    textures[61] = loadImage("Assets/RadioWRubbish1.png");
-    textures[62] = loadImage("Assets/RadioWRubbish2.png");
-    textures[63] = loadImage("Assets/RadioWRubbish3.png");
-    textures[64] = loadImage("Assets/RadioWRubbish4.png");
-    textures[65] = loadImage("Assets/RadioWRubbish5.png");
-    textures[67] = loadImage("Assets/RadioWRubbish6.png");
-    textures[68] = loadImage("Assets/RadioWRubbish7.png");
-    textures[69] = loadImage("Assets/SewerWRubbish1.png");
-    textures[70] = loadImage("Assets/SewerWRubbish2.png");
-    textures[71] = loadImage("Assets/SewerWGator.png");
+    textures[74] = loadImage("Assets/RadioWRubbish.png");
+    textures[75] = loadImage("Assets/RadioWRubbish1.png");
+    textures[76] = loadImage("Assets/RadioWRubbish2.png");
+    textures[77] = loadImage("Assets/RadioWRubbish3.png");
+    textures[78] = loadImage("Assets/RadioWRubbish4.png");
+    textures[79] = loadImage("Assets/RadioWRubbish5.png");
+    textures[80] = loadImage("Assets/RadioWRubbish6.png");
+    textures[81] = loadImage("Assets/RadioWRubbish7.png");
+    textures[82] = loadImage("Assets/SewerWRubbish1.png");
+    textures[83] = loadImage("Assets/SewerWRubbish2.png");
+    textures[84] = loadImage("Assets/SewerWGator.png");
 
     //ratSprite = loadImage("RatLeft.png");
 
@@ -172,7 +196,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(500, 500);
+    createCanvas(750, 750);
 
     let tileID = 0; // sets our tileID for the first tile we'll make
 
