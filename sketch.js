@@ -58,32 +58,96 @@ function preload() {
 
     // BACKGROUND
     textures[0] = loadImage("Assets/Acid.png");
+    textures[1] = loadImage("Assets/SewerWater1.png");
+    textures[2] = loadImage("Assets/SewerWater2.png");
+    textures[3] = loadImage("Assets/SewerWater3.png");
+    textures[4] = loadImage("Assets/RadioWater1.png");
+    textures[5] = loadImage("Assets/RadioWater2.png");
+    textures[6] = loadImage("Assets/RadioWater3.png");
+    textures[7] = loadImage("Assets/RadioWater4.png");
+    textures[8] = loadImage("Assets/RadioWater5.png");
+    textures[9] = loadImage("Assets/RadioWater6.png");
 
     // PIPES
-    textures[1] = loadImage("Assets/PipeStraight.png")
-    textures[2] = loadImage("Assets/PipeRightUp.png")
-    textures[3] = loadImage("Assets/PipeLeftUp.png");
-    textures[4] = loadImage("Assets/PipeBottomRight.png")
-    textures[5] = loadImage("Assets/3wayBLU.png");
-    textures[6] = loadImage("Assets/3wayBRL.png");
-    textures[7] = loadImage("Assets/3wayBRU.png");
-    textures[8] = loadImage("Assets/3wayTLR.png");
-    textures[9] = loadImage("Assets/PipeLeft.png");
-    textures[10] = loadImage("Assets/PipeSide.png");
+    // Straight/Side
+    textures[10] = loadImage("Assets/PipeStraight.png")
+    textures[11] = loadImage("Assets/PipeStraightRW1.png");
+    textures[12] = loadImage("Assets/PipeStraightRW4.png");
+    textures[13] = loadImage("Assets/PipeStraightSW.png");
+
+    textures[14] = loadImage("Assets/PipeSide.png");
+    textures[15] = loadImage("Assets/PipeSideRW2.png");
+    textures[16] = loadImage("Assets/PipeSideRW3.png");
+    textures[17] = loadImage("Assets/PipeSideSW.png");
+
+
+    // Curved
+    textures[18] = loadImage("Assets/PipeRightUp.png")
+    textures[19] = loadImage("Assets/PipeRightUpRW2.png");
+    textures[20] = loadImage("Assets/PipeRightUpRW8.png");
+    textures[21] = loadImage("Assets/PipeRightUpSW.png");
+
+    textures[22] = loadImage("Assets/PipeLeftUp.png");
+    textures[23] = loadImage("Assets/PipeLeftUpRW1.png");
+    textures[24] = loadImage("Assets/PipeLeftUpRW7.png");
+    textures[25] = loadImage("Assets/PipeLeftUpSW.png");
+
+    textures[26] = loadImage("Assets/PipeBottomRight.png")
+    textures[27] = loadImage("Assets/PipeBottomRightRW4.png");
+    textures[28] = loadImage("Assets/PipeBottomRightRW5.png");
+    textures[29] = loadImage("Assets/PipeBottomRightSW.png");
+
+    textures[30] = loadImage("Assets/PipeLeftBottom.png")
+    textures[31] = loadImage("Assets/PipeLeftBottomRW3.png")
+    textures[32] = loadImage("Assets/PipeLeftBottomRW6.png")
+    textures[33] = loadImage("Assets/PipeLeftBottomSW.png")
+
+    //3 Way Pipes
+    textures[34] = loadImage("Assets/3wayBLU.png");
+    textures[35] = loadImage("Assets/3wayBLURW3.png");
+    textures[36] = loadImage("Assets/3wayBLURW6.png");
+    textures[37] = loadImage("Assets/3wayBLUSW.png");
+
+    textures[38] = loadImage("Assets/3wayBRL.png");
+    textures[39] = loadImage("Assets/3wayBRLRW1.png");
+    textures[40] = loadImage("Assets/3wayBRLRW8.png");
+    textures[41] = loadImage("Assets/3wayBRLSW.png");
+
+    textures[42] = loadImage("Assets/3wayBRU.png");
+    textures[43] = loadImage("Assets/3wayBRURW4.png");
+    textures[44] = loadImage("Assets/3wayBRURW5.png");
+    textures[45] = loadImage("Assets/3wayBRUSW.png");
+
+    textures[46] = loadImage("Assets/3wayTLR.png");
+    textures[47] = loadImage("Assets/3wayTLRRW2.png");
+    textures[48] = loadImage("Assets/3wayTLRSW.png");
+    textures[49] = loadImage("Assets/3wayTLRRW7.png");
 
     //PLATFORMS
-    textures[11] = loadImage("Assets/PlatformBL.png");
-    textures[12] = loadImage("Assets/PlatformBR.png");
-    textures[13] = loadImage("Assets/PlatformCB.png");
-    textures[14] = loadImage("Assets/PlatformF.png");
-    textures[15] = loadImage("Assets/PlatformTL.png");
-    textures[16] = loadImage("Assets/PlatformTR.png");
-    textures[17] = loadImage("Assets/PlatformCDC.png");
-    textures[18] = loadImage("Assets/PlatformCRC.png");
-    textures[19] = loadImage("Assets/PlatformCLC.png");
-    textures[20] = loadImage("Assets/PlatformCUC.png");
+    textures[50] = loadImage("Assets/PlatformBL.png");
+    textures[51] = loadImage("Assets/PlatformBR.png");
+    textures[52] = loadImage("Assets/PlatformCB.png");
+    textures[53] = loadImage("Assets/PlatformF.png");
+    textures[54] = loadImage("Assets/PlatformTL.png");
+    textures[55] = loadImage("Assets/PlatformTR.png");
+    textures[56] = loadImage("Assets/PlatformCDC.png");
+    textures[57] = loadImage("Assets/PlatformCRC.png");
+    textures[58] = loadImage("Assets/PlatformCLC.png");
+    textures[59] = loadImage("Assets/PlatformCUC.png");
 
-   
+    //Objects In Liquid
+    textures[60] = loadImage("Assets/RadioWRubbish.png");
+    textures[61] = loadImage("Assets/RadioWRubbish1.png");
+    textures[62] = loadImage("Assets/RadioWRubbish2.png");
+    textures[63] = loadImage("Assets/RadioWRubbish3.png");
+    textures[64] = loadImage("Assets/RadioWRubbish4.png");
+    textures[65] = loadImage("Assets/RadioWRubbish5.png");
+    textures[67] = loadImage("Assets/RadioWRubbish6.png");
+    textures[68] = loadImage("Assets/RadioWRubbish7.png");
+    textures[69] = loadImage("Assets/SewerWRubbish1.png");
+    textures[70] = loadImage("Assets/SewerWRubbish2.png");
+    textures[71] = loadImage("Assets/SewerWGator.png");
+
     //ratSprite = loadImage("RatLeft.png");
 
     ratSprites = {
