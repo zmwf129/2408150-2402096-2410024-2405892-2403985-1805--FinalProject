@@ -176,13 +176,13 @@ function preload() {
     textures[80] = loadImage("Assets/PlatformRMRW1.png");
     textures[81] = loadImage("Assets/PlatformRMRW2.png");
     textures[82] = loadImage("Assets/PlatformRMRW3.png");
-    textures[83] = loadImage("Assets/PlatformRMRSW.png");
+    textures[83] = loadImage("Assets/PlatformRMSW.png");
 
     textures[84] = loadImage("Assets/PlatformTMAcid.png");
     textures[85] = loadImage("Assets/PlatformTMRW1.png");
     textures[86] = loadImage("Assets/PlatformTMRW2.png");
     textures[87] = loadImage("Assets/PlatformTMRW3.png");
-    textures[88] = loadImage("Assets/PlatformTMRSW.png");
+    textures[88] = loadImage("Assets/PlatformTMSW.png");
 
     //Objects In Liquid
     textures[89] = loadImage("Assets/RadioWRubbish1.png");
