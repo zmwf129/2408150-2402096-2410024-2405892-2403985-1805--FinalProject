@@ -40,7 +40,7 @@ Amanda:
 Baar:
 - Level design - Conceptualised the RPG format and basic level design e.g. came up with the idea of the player being able to walk on interconnected pipes that are on top of lakes of sewer water, as well as concrete platforms, through various sketches.
 - Miscellaneous graphic design - Created a potential logo for the game through photo editing software (after coming up with the name). Currently designing opening and end screens for the game with potential animations.
-- Currently researching for codes that help the screen move alongside the player's movements across the screen for when the level's environments are expanded (with one currently implemented but inactive for the time being)
+- Currently researching for codes that help the screen move alongside the player's movements across the screen for when the level's environments are expanded (with one currently implemented but inactive for the time being). Also attempted to implement a simplified "demo" version of the starting screen with tutorials from YouTube.
 
 Freddie:
 - Handling enemy movment - Researching how to create and implement enemy classes. Also researching how to code enemy movement and attacks.
