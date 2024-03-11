@@ -63,10 +63,10 @@ let playerSize = tileSize;
 
 // LVL 1 RATS
 // Had to comment everything to do with the rats other than the rat class becuase it says in the console that rat is not defined
-//let rat;
-//let ratSprite = {};
-//let ratSpeed = 3;
-//let ratSize = tileSize;
+let rat;
+let ratSprite = {};
+let ratSpeed = 3;
+let ratSize = tileSize;
 
 function preload() {
     // game start screen
@@ -211,7 +211,6 @@ function preload() {
     textures[106] = loadImage("Assets/RadioWBone3.png");
     textures[107] = loadImage("Assets/RadioWBone4.png");
 
-    //ratSprite = loadImage("RatLeft.png");
 
     ratSprites = {
         ratLnorm: loadImage("Assets/RatLeft.png"),
@@ -220,9 +219,6 @@ function preload() {
         ratDnorm: loadImage("Assets/RatDownward.png")
 
     }
-
-    //Our player
-    playerSprite = loadImage("Assets/SpriteForward.png")
 
     playerSprites = {
         Up: loadImage("Assets/SpriteForward.png"),
@@ -260,11 +256,8 @@ function setup() {
     //Create Player
     player = new Player (playerSprites, 7, 14, tileSize, playerSpeed, tileSize, tileRules);
 
-    //Creating the bullet
-    //bullet = new Bullet (width/2, height/2);
-
     //Creating the rats
-    //rat = new Rat (ratSprite, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
+    rat = new Rat (ratSprite, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 }
 
@@ -310,6 +303,7 @@ function draw() {
 
     //showing the rats
     //rat.display();
+    
 }
 
 // VARIOUS SCREENS
@@ -517,8 +511,8 @@ class Tile {
 
 }
 
-class EnemyLVL1{
-    constructor(sprites, startAcross, startDown, size, ratSpeed, tileSize, tileRules) {
+class Rat{
+    constructor(sprites, startAcross, startDown, size, speed, tileSize, tileRules) {
         //Attach sprite to key in object
         this.sprites = sprites;
 
@@ -535,7 +529,7 @@ class EnemyLVL1{
 
         //storing size and speed
         this.size = size;
-        this.ratSpeed = ratSpeed;
+        this.speed = speed;
 
         //Check rules/collisions for the tile the player wants to move to (target Tile)
         this.tileRules = tileRules;
@@ -591,3 +585,26 @@ class EnemyLVL1{
 //enemy = new Enemy (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 // class Boss(){}
+
+class Bullet {
+     bullet(x, y) {
+        this.x = x;
+        this.y = y;
+        this.r = 8;
+        this.toDelete = false;
+      
+        this.show = function() {
+          noStroke();
+          fill(150, 0, 255);
+          ellipse(this.x, this.y, this.r*2, this.r*2);
+        }
+      
+        this.move = function() {
+          this.y = this.y - 5;
+        }
+      
+      }
+
+
+
+}
