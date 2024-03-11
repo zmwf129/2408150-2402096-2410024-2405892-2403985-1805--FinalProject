@@ -205,8 +205,7 @@ function preload() {
     textures[106] = loadImage("Assets/RadioWBone3.png");
     textures[107] = loadImage("Assets/RadioWBone4.png");
 
-    ratSprite = loadImage("Assets/RatLeft.png");
-
+    
     ratSprites = {
         ratLnorm: loadImage("Assets/RatLeft.png"),
         ratRnorm: loadImage("Assets/RatRight.png"),
@@ -214,9 +213,6 @@ function preload() {
         ratDnorm: loadImage("Assets/RatDownward.png")
 
     }
-
-    //Our player
-    playerSprite = loadImage("Assets/SpriteForward.png")
 
     playerSprites = {
         Up: loadImage("Assets/SpriteForward.png"),
@@ -259,7 +255,7 @@ function setup() {
 
 }
 
-function draw() {s
+function draw() {
     background(0);
     
     
