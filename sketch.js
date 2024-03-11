@@ -255,7 +255,7 @@ function setup() {
     player = new Player (playerSprites, 7, 14, tileSize, playerSpeed, tileSize, tileRules);
 
     //Creating the rats
-    //rat = new Rat (ratSprite, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
+    rat = new Rat (ratSprite, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 }
 
