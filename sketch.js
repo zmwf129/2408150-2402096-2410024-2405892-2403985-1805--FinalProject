@@ -59,14 +59,12 @@ let tileRules = [
 
     //INITIALISE VARIABLES FOR PLAYER
 let player;
-let playerSprite = {}; //creating an empty playerSprite game object
 let playerSpeed = 5;
 let playerSize = tileSize;
 
 // LVL 1 RATS
 // Had to comment everything to do with the rats other than the rat class becuase it says in the console that rat is not defined
-let rat;
-let ratSprite = {};
+let rat = [];
 let ratSpeed = 3;
 let ratSize = tileSize;
 
@@ -260,9 +258,6 @@ function setup() {
 
     //Create Player
     player = new Player (playerSprites, 7, 14, tileSize, playerSpeed, tileSize, tileRules);
-
-    //Creating the rats
-    rat = new Rat (ratSprite, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 }
 
@@ -539,10 +534,9 @@ class Rat{
         //Check rules/collisions for the tile the player wants to move to (target Tile)
         this.tileRules = tileRules;
         this.tileSize = tileSize;
+
         }
     
-
-
     // Need to edit it for just rats and not the player
     //This checks what tile the player wants to move to and if
     //the player is allowed to move there
