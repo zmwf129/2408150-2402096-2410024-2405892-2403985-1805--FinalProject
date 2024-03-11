@@ -33,7 +33,8 @@ The player begins the game in a normal-looking sewer. They fight rats--normal on
 ## INDIVIDUAL CONTRIBUTIONS
 Amanda: 
 - Details of game conceptualization (regarding layout and levels), e.g. three levels with gradually stronger, but fewer enemies, with one final boss at the end, where it is revealed that the mutated rats have been drawing their power from improperly disposed nuclear waste. Worked with River to determine the details of where and how assets will be used in the game.
-- Audio production (music and SFX) - Composed a simple soundtrack for the game. I will also create sound effects (shooting, impact, etc.) and I will handle the code relating to implementation of the music and SFX into the game.
+- Added code to implement starting and game won screens created by Baar based on my own code from a previous project.
+- Audio production (music and SFX) - Composed a simple soundtrack for the game. I will also create sound effects (shooting, impact, etc.) and I will handle the code relating to implementation of audio.
 - Created moodboard and wrote README (with the exception of the following writing).
 
 Baar:
