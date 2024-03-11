@@ -286,7 +286,7 @@ function draw() {
     player.move();
 
     //showing the rats
-    //rat.display();
+    rat.display();
 }
 
 function keyPressed() {
