@@ -1,5 +1,5 @@
 # Coding-Prototype
-By Amanda Murch (2408150), Baar (2402096), Freddie (2410024), River (2405892), Velvet (2403985)
+By Amanda Murch (2408150), Baar Bisiriyu (2402096), Freddie (2410024), River Jackson (2405892), Velvet (2403985)
 
 ![Rat Attack! (1)](https://github.com/zmwf129/epic-win-side-scroller/assets/149950646/545e6732-169d-46c7-aca2-75c18da4b506)
 
