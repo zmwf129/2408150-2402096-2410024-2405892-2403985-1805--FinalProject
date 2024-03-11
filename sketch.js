@@ -480,7 +480,7 @@ class Tile {
         textAlign(LEFT, TOP);
         
         text(this.tileID, this.xPos, this.yPos);
-    } // I've hidden the DEBUG method but this is where the code for it goes!
+    } 
 
 }
 
