@@ -10,6 +10,7 @@ let numAcross = 15;
 let tileSize = 50;
 let textures = [];
 let score = 0;
+// let scene = 0;
 
 //Bullet variable
 let bullet = [];
@@ -271,6 +272,24 @@ function draw() {
 //     } else if (gameStatus == 'won'){
 //         drawGameWon();
 //     }
+
+    // start screen demo version
+// switch(scene){
+//     case 0:
+//         fill(0);
+//         textSize(50);
+//         textAlign(CENTER);
+//         text("RAT ATTACK!", width/1, height/1);
+//         textSize(20);
+//         text("click to start", width/1, height/1);
+//         if(mouseIsPressed){
+//             scene++;
+//         }
+//         break;
+//         case 1:
+//             ellipse(width/2, height/2, 30);
+//             break;
+// }
 
     background(0);
     
