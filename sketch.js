@@ -166,17 +166,44 @@ function preload() {
     textures[72] = loadImage("Assets/PlatformCLC.png");
     textures[73] = loadImage("Assets/PlatformCUC.png");
 
+    textures[74] = loadImage("Assets/PlatformLMAcid.png");
+    textures[75] = loadImage("Assets/PlatformLMRW1.png");
+    textures[76] = loadImage("Assets/PlatformLMRW2.png");
+    textures[77] = loadImage("Assets/PlatformLMRW3.png");
+    textures[78] = loadImage("Assets/PlatformLMSW.png");
+
+    textures[79] = loadImage("Assets/PlatformRMAcid.png");
+    textures[80] = loadImage("Assets/PlatformRMRW1.png");
+    textures[81] = loadImage("Assets/PlatformRMRW2.png");
+    textures[82] = loadImage("Assets/PlatformRMRW3.png");
+    textures[83] = loadImage("Assets/PlatformRMRSW.png");
+
+    textures[84] = loadImage("Assets/PlatformTMAcid.png");
+    textures[85] = loadImage("Assets/PlatformTMRW1.png");
+    textures[86] = loadImage("Assets/PlatformTMRW2.png");
+    textures[87] = loadImage("Assets/PlatformTMRW3.png");
+    textures[88] = loadImage("Assets/PlatformTMRSW.png");
+
     //Objects In Liquid
-    textures[74] = loadImage("Assets/RadioWRubbish1.png");
-    textures[75] = loadImage("Assets/RadioWRubbish2.png");
-    textures[76] = loadImage("Assets/RadioWRubbish3.png");
-    textures[77] = loadImage("Assets/RadioWRubbish4.png");
-    textures[78] = loadImage("Assets/RadioWRubbish5.png");
-    textures[79] = loadImage("Assets/RadioWRubbish6.png");
-    textures[80] = loadImage("Assets/RadioWRubbish7.png");
-    textures[81] = loadImage("Assets/SewerWRubbish1.png");
-    textures[82] = loadImage("Assets/SewerWRubbish2.png");
-    textures[83] = loadImage("Assets/SewerWGator.png");
+    textures[89] = loadImage("Assets/RadioWRubbish1.png");
+    textures[90] = loadImage("Assets/RadioWRubbish2.png");
+    textures[91] = loadImage("Assets/RadioWRubbish3.png");
+    textures[92] = loadImage("Assets/RadioWRubbish4.png");
+    textures[93] = loadImage("Assets/RadioWRubbish5.png");
+    textures[94] = loadImage("Assets/RadioWRubbish6.png");
+    textures[95] = loadImage("Assets/RadioWRubbish7.png");
+    textures[96] = loadImage("Assets/SewerWRubbish1.png");
+    textures[97] = loadImage("Assets/SewerWRubbish2.png");
+    textures[98] = loadImage("Assets/SewerWRubbish3.png");
+    textures[99] = loadImage("Assets/SewerWRubbish4.png");
+    textures[100] = loadImage("Assets/SewerWterminator.png");
+    textures[101] = loadImage("Assets/SewerWGator.png");
+    textures[102] = loadImage("Assets/RadioW2Bones1.png");
+    textures[103] = loadImage("Assets/RadioW2Bones2.png");
+    textures[104] = loadImage("Assets/RadioWBone1.png");
+    textures[105] = loadImage("Assets/RadioWBone2.png");
+    textures[106] = loadImage("Assets/RadioWBone3.png");
+    textures[107] = loadImage("Assets/RadioWBone4.png");
 
     //ratSprite = loadImage("RatLeft.png");
 
