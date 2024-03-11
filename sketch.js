@@ -22,11 +22,11 @@ let graphicMap = [
     [3, 21, 33,  1, 45, 17, 17, 37,  1,  1,  13,  1,  2,  3,  1], // 6
     [3,  1, 45, 17, 37,  1,  1, 13,  3,  1,  13,  1,  2,  3,  1], // 7
     [3,  1, 13,  1,  13,  2, 65, 73, 67,  2, 13,  1,  1, 29, 17], // 8
-    [17,17, 25,  2,  13,  2, 61, 61, 61,  2, 21, 41, 17, 25,  1], // 9
+    [17,17, 25,  2,  13,  2, 78, 61, 83,  2, 21, 41, 17, 25,  1], // 9
     [1,  2,  1,  2,  13,  1, 54, 60, 56,  3,  1, 13,  1,  1,  1], // 10
     [1,  96,  3,  2,  13,  1,  2,  98,  3,  2,  1, 13,  99,  1,  1], // 11
     [1,  2,  3,  1,  13,  1,  1,  2,  97,  1,  1, 13,  3,  1,  1], // 12
-    [61, 61, 61, 61, 73, 61, 61, 61, 61, 61, 61, 73, 61, 61, 61], // 13
+    [88, 88, 88, 88, 73, 88, 88, 88, 88, 88, 88, 73, 88, 88, 88], // 13
     [61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61]  // 14
 ]
 
@@ -254,9 +254,6 @@ function setup() {
     //Create Player
     player = new Player (playerSprites, 7, 14, tileSize, playerSpeed, tileSize, tileRules);
 
-    //Creating the bullet
-    bullet = new Bullet (width/2, height/2);
-
     //Creating the rats
     //rat = new Rat (ratSprite, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
@@ -480,7 +477,7 @@ class Tile {
         textAlign(LEFT, TOP);
         
         text(this.tileID, this.xPos, this.yPos);
-    } // I've hidden the DEBUG method but this is where the code for it goes!
+    } 
 
 }
 
@@ -558,3 +555,26 @@ class Rat{
 //enemy = new Enemy (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 // class Boss(){}
+
+class Bullet {
+     bullet(x, y) {
+        this.x = x;
+        this.y = y;
+        this.r = 8;
+        this.toDelete = false;
+      
+        this.show = function() {
+          noStroke();
+          fill(150, 0, 255);
+          ellipse(this.x, this.y, this.r*2, this.r*2);
+        }
+      
+        this.move = function() {
+          this.y = this.y - 5;
+        }
+      
+      }
+
+
+
+}
