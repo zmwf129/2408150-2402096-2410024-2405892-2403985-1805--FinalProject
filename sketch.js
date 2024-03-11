@@ -1,3 +1,8 @@
+// used to organise startup and gameplay screens
+//let gameStatus = 'startup screen',
+
+// let bgMusic;
+
 //INITIALISE VARIABLES
 let tilemap = [];
 let numDown = 15;
@@ -8,9 +13,6 @@ let score = 0;
 
 //Bullet variable
 let bullet = [];
-
-// used to organise startup and gameplay screens
-//let gameStatus = 'startup screen',
 
 let graphicMap = [ 
     // I added the different texture numbers to the map to create the environment
@@ -72,6 +74,9 @@ function preload() {
     // game start screen
     //titleScreen = loadImage("Assets/titlesScreen.jpg");
     //gameWonScreen = loadImage("Assets/gameWonScreen.jpg");
+
+    //MUSIC
+    //bgMusic = loadSound('Assets/PUT MUSIC FILE NAME HERE');
 
     // BACKGROUND
     textures[0] = loadImage("Assets/Acid.png");
