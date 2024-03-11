@@ -60,10 +60,10 @@ let playerSize = tileSize;
 
 // LVL 1 RATS
 // Had to comment everything to do with the rats other than the rat class becuase it says in the console that rat is not defined
-//let rat;
-//let ratSprite = {};
-//let ratSpeed = 3;
-//let ratSize = tileSize;
+let rat;
+let ratSprite = {};
+let ratSpeed = 3;
+let ratSize = tileSize;
 
 function preload() {
 
@@ -484,8 +484,8 @@ class Tile {
 
 }
 
-class EnemyLVL1{
-    constructor(sprites, startAcross, startDown, size, ratSpeed, tileSize, tileRules) {
+class Rat{
+    constructor(sprites, startAcross, startDown, size, speed, tileSize, tileRules) {
         //Attach sprite to key in object
         this.sprites = sprites;
 
@@ -502,7 +502,7 @@ class EnemyLVL1{
 
         //storing size and speed
         this.size = size;
-        this.ratSpeed = ratSpeed;
+        this.speed = speed;
 
         //Check rules/collisions for the tile the player wants to move to (target Tile)
         this.tileRules = tileRules;
