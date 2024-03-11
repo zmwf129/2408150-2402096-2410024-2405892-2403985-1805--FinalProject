@@ -254,9 +254,6 @@ function setup() {
     //Create Player
     player = new Player (playerSprites, 7, 14, tileSize, playerSpeed, tileSize, tileRules);
 
-    //Creating the bullet
-    //bullet = new Bullet (width/2, height/2);
-
     //Creating the rats
     //rat = new Rat (ratSprite, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
@@ -558,3 +555,26 @@ class EnemyLVL1{
 //enemy = new Enemy (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 // class Boss(){}
+
+class Bullet {
+     bullet(x, y) {
+        this.x = x;
+        this.y = y;
+        this.r = 8;
+        this.toDelete = false;
+      
+        this.show = function() {
+          noStroke();
+          fill(150, 0, 255);
+          ellipse(this.x, this.y, this.r*2, this.r*2);
+        }
+      
+        this.move = function() {
+          this.y = this.y - 5;
+        }
+      
+      }
+
+
+
+}
