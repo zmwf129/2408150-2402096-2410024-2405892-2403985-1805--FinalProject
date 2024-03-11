@@ -205,7 +205,7 @@ function preload() {
     textures[106] = loadImage("Assets/RadioWBone3.png");
     textures[107] = loadImage("Assets/RadioWBone4.png");
 
-    
+
     ratSprites = {
         ratLnorm: loadImage("Assets/RatLeft.png"),
         ratRnorm: loadImage("Assets/RatRight.png"),
@@ -286,7 +286,8 @@ function draw() {
     player.move();
 
     //showing the rats
-    rat.display();
+    //rat.display();
+    
 }
 
 function keyPressed() {
