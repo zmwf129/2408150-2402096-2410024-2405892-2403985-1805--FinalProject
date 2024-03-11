@@ -408,6 +408,20 @@ class Player {
             //With the direction set, we can now move to the next code block to check if we can move!
             this.checkTargetTile();
 
+            // moves with screen START
+//   dx = center.x - p.x;
+//   dy = center.y - p.y;
+  
+//   if(abs(dx) > 100){
+//     center.x -= dx - 100 * dx / abs(dx)
+//   }
+  
+//   if(abs(dy) > 100){
+//     center.y -= dy - 100 * dy / abs(dy)
+//   }
+  
+//   translate(origin.x - center.x, origin.y - center.y)
+
         }
 
     }
