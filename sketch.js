@@ -259,7 +259,7 @@ function setup() {
 
 }
 
-function draw() {s
+function draw() {
     background(0);
     
     
