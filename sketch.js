@@ -9,6 +9,9 @@ let score = 0;
 //Bullet variable
 let bullet = [];
 
+// used to organise startup and gameplay screens
+//let gameStatus = 'startup screen',
+
 let graphicMap = [ 
     // I added the different texture numbers to the map to create the environment
 //         THIS IS OUR Y AXIS
@@ -66,6 +69,9 @@ let playerSize = tileSize;
 //let ratSize = tileSize;
 
 function preload() {
+    // game start screen
+    //titleScreen = loadImage("Assets/titlesScreen.jpg");
+    //gameWonScreen = loadImage("Assets/gameWonScreen.jpg");
 
     // BACKGROUND
     textures[0] = loadImage("Assets/Acid.png");
@@ -263,6 +269,16 @@ function setup() {
 }
 
 function draw() {
+
+    // STARTUP AND ENDING SCREENS
+// if (gameStatus === 'startup screen'){
+//     drawStartupScreen();
+//     }else if (gameStatus == 'play'){
+//         drawGame();
+//     } else if (gameStatus == 'won'){
+//         drawGameWon();
+//     }
+
     background(0);
     
     
@@ -296,7 +312,24 @@ function draw() {
     //rat.display();
 }
 
+// VARIOUS SCREENS
+// function drawStartupScreen() {
+//     image(titleScreen, 0, 0, 500, 500);
+// }
+
+// function drawGameWon() {
+//     image(gameWonScreen, 0, 0, 500, 500);
+// }
+
+
+
+
 function keyPressed() {
+
+// if(gameStatus == 'startup screen' && keyCode === 13){ // if on startup screen, pressing ENTER will trigger game.
+//     gameStatus = 'play';
+// }
+
     player.setDirection();
 
     if (key === '  ')   {
