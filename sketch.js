@@ -647,20 +647,6 @@ class Rat {
 
 // class Boss(){}
 
-        
-    
-
-    
-
-
-
-
-
-
-
-
-
-
 //class Bullet {
    //bullet(x, y, bulletasset) {
     ///this.x = x;
