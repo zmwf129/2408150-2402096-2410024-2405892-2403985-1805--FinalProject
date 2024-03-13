@@ -287,9 +287,6 @@ function setup() {
 
     //Create Player
     player = new Player (playerSprites, 7, 14, tileSize, playerSpeed, tileSize, tileRules);
-   
-    
-
     
 }
 
@@ -672,20 +669,6 @@ class Rat {
 //enemy = new Enemy (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 // class Boss(){}
-
-        
-    
-
-    
-
-
-
-
-
-
-
-
-
 
 //class Bullet {
    //bullet(x, y, bulletasset) {
