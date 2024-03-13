@@ -216,7 +216,7 @@ function preload() {
     textures[107] = loadImage("Assets/RadioWBone4.png");
 
     //bulletsprite
-    textires[108] = loadImage("Assets/bulletasset.png")
+    textures[108] = loadImage("Assets/bulletasset.png")
 
     ratSprites = {
         ratLnorm: loadImage("Assets/RatLeft.png"),
@@ -664,10 +664,36 @@ class Rat {
 
 // class Boss(){}
 
-// class Bullet {
-   //  bullet(x, y) {
-     //   this.x = x;
-       // this.y = y;
+
+
+// Define a Bullet class
+class Bullet {
+    constructor(x, y, direction, bulletAsset) {
+        this.x = x;
+        this.y = y;
+        this.speed = 5;
+        this.direction = direction; 
+        this.bulletAsset = bulletAsset; 
+
+    update() {
+        this.x += this.speed * Math.cos(this.direction);
+        this.y += this.speed * Math.sin(this.direction);
+
+    draw() {
+        image(this.bulletAsset, this.x, this.y);
+
+
+
+
+
+
+
+
+
+//class Bullet {
+   //bullet(x, y, bulletasset) {
+    ///this.x = x;
+    //this.y = y;
         //this.r = 8;
      //   this.toDelete = false;
       
