@@ -52,5 +52,7 @@ River:
 - Addded a basic rendition of the Rat/Enemy class and made it so they would appear at random on the tile map. (At the time of writing this they appear in the center or corner of the tiles).
 
 Velvet: 
-- Researched and implemented variables for a score system
-- Helped fix bugs 
+- Researched and implemented variables for a score system.
+- Helped fix bugs.
+- Worked together with river to fix and create the rat class.
+- I displayed the rat sprites by replacing the placeholder ellipses.
