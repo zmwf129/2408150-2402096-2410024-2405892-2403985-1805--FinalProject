@@ -65,7 +65,7 @@ let playerSize = tileSize;
 
 // LVL 1 RATS
 // Had to comment everything to do with the rats other than the rat class becuase it says in the console that rat is not defined
-let rat = [];
+let rat;
 let ratSpeed = 3;
 let ratSize = tileSize;
 
@@ -259,7 +259,10 @@ function setup() {
 
     //Create Player
     player = new Player (playerSprites, 7, 14, tileSize, playerSpeed, tileSize, tileRules);
+    //Create Rat
+    rat = new Rat(ratSprites, 7, 5, tileSize, ratSpeed, tileSize, tileRules);
 
+    
 }
 
 function draw() {
@@ -320,7 +323,8 @@ function draw() {
     player.move();
 
     //showing the rats
-    //rat.display();
+    rat.display();
+    rat.move();
 
 }
 
@@ -593,102 +597,90 @@ class Tile {
         
         text(this.tileID, this.xPos, this.yPos);
     } 
-
 }
-
-class Rat{
+class Rat {
     constructor(sprites, startAcross, startDown, size, speed, tileSize, tileRules) {
-        //Attach sprite to key in object
+        // Attach sprite to key in object
         this.sprites = sprites;
+        this.spriteLeft = this.sprites.ratLnorm;
+        this.spriteRight = this.sprites.ratRnorm;
+        this.spriteForward = this.sprites.ratFnorm;
+        this.spriteDownward = this.sprites.ratDnorm;
 
-        //set current sprite, we'll initialise it down for now
-        this.currentSprite = this.sprites.Down;
+        // Set current sprite, we'll initialise it down for now
+        this.currentSprite = this.sprites.ratDownward;
 
-        //Store starting tile info. Later, we will use these to store the current tile the player is on.
+        // Store starting tile info. Later, we will use these to store the current tile the rat is on.
         this.across = startAcross;
         this.down = startDown;
-        
-        //convert tile coordinates into pixel coordinates
+
+        // Convert tile coordinates into pixel coordinates
         this.xPos = this.across * tileSize;
         this.yPos = this.down * tileSize;
 
-        //storing size and speed
+        // Store size and speed
         this.size = size;
         this.speed = speed;
 
-        //Check rules/collisions for the tile the player wants to move to (target Tile)
+        // Check rules/collisions for the tile the rat wants to move to (target Tile)
         this.tileRules = tileRules;
         this.tileSize = tileSize;
 
-        }
-    
-    // Need to edit it for just rats and not the player
-    //This checks what tile the player wants to move to and if
-    //the player is allowed to move there
-    checkTargetTile() {
-        //First, get what tile the player is currently on
-        this.across = Math.floor(this.xPos / this.tileSize);
-        this.down = Math.floor(this.yPos / this.tileSize);
+        // Direction of movement
+        this.dirX = 0;
+        this.dirY = 0;
 
-        //Calculate the coordinates of the target tile
-        let nextTileHorizontal = this.across + this.dirX;
-        let nextTileVertical = this.down + this.dirY;
-
-        //check is that tile is in bounds of the map
-        // remember: && means AND (i.e. below is asking if ALL conditions are true)
-        if (
-            
-            nextTileHorizontal >= 0 && //top of map
-            nextTileHorizontal < numAcross && //bottom of map
-            nextTileVertical >= 0 && //left edge of map
-            nextTileVertical < numDown //right edge of map
-        ) {
-            //if it is in bounds, have we set it as moveable in our ruleMap:
-            if (this.tileRules[nextTileVertical][nextTileHorizontal] != 1) { // remember we have to swap these!
-                //if the target tile is walkable, then...
-                //...calculate the precise x and y coordinate of the target tile...
-                this.tx = nextTileHorizontal * this.tileSize;
-                this.ty = nextTileVertical * this.tileSize;
-
-            }
-
-        }
-
+        // Target tile coordinates
+        this.tx = this.xPos;
+        this.ty = this.yPos;
     }
 
     display() {
-        //Displays the texture of instance of NPC class
-        noStroke();
-        image(this.texture, this.xPos, this.yPos, this.tileSize, this.tileSize)
+        // Display the current sprite of the rat
+        imageMode(CORNER);
+        image(this.currentSprite, this.xPos, this.yPos, this.size, this.size);
     }
-    
-}
 
+    move() {
+        // Move the rat
+        this.xPos += this.speed * this.dirX;
+        this.yPos += this.speed * this.dirY;
+
+        // Check if the rat has reached the target tile
+        if (this.xPos === this.tx && this.yPos === this.ty) {
+            // Stop moving
+            this.dirX = 0;
+            this.dirY = 0;
+        }
+    }
+
+    // Add other methods for rat movement and behavior here...
+}
 
 
 //enemy = new Enemy (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 // class Boss(){}
 
-class Bullet {
-     bullet(x, y) {
-        this.x = x;
-        this.y = y;
-        this.r = 8;
-        this.toDelete = false;
+// class Bullet {
+   //  bullet(x, y) {
+     //   this.x = x;
+       // this.y = y;
+        //this.r = 8;
+     //   this.toDelete = false;
       
-        this.show = function() {
-          noStroke();
-          fill(150, 0, 255);
-          ellipse(this.x, this.y, this.r*2, this.r*2);
-        }
+       // this.show = function() {
+         // noStroke();
+          //fill(150, 0, 255);
+          //ellipse(this.x, this.y, this.r*2, this.r*2);
+       // }
       
-        this.move = function() {
-          this.y = this.y - 5;
-        }
+        //this.move = function() {
+         // this.y = this.y - 5;
+       // }
       
-      }
+     // }
 
 
 
-}
+//}
