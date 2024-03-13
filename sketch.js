@@ -631,17 +631,43 @@ class Tile {
 
 class Rat {
     constructor(x, y) {
-      this.x = x;
-      this.y = y;
-      this.size = 20;
+        this.x = x;
+        this.y = y;
+        this.size = 20;
+        // Load rat sprites
+        this.ratSprites = {
+            left: loadImage("Assets/RatLeft.png"),
+            right: loadImage("Assets/RatRight.png"),
+            forward: loadImage("Assets/RatForward.png"),
+            downward: loadImage("Assets/RatDownward.png")
+        };
+        // Set initial direction
+        this.direction = "forward";
     }
     
     display() {
-      // Display the enemy
-      fill(255, 0, 0);
-      ellipse(this.x, this.y, this.size, this.size);
+   // Display the rat based on its direction
+        imageMode(CENTER);
+        switch (this.direction) {
+            case "left":
+                image(this.ratSprites.left, this.x, this.y, this.tileSize, this.tileSize);
+                break;
+            case "right":
+                image(this.ratSprites.right, this.x, this.y, this.size, this.size);
+                break;
+            case "forward":
+                image(this.ratSprites.forward, this.x, this.y, this.size, this.size);
+                break;
+            case "downward":
+                image(this.ratSprites.downward, this.x, this.y, this.size, this.size);
+                break;
+            default:
+                // Default to forward sprite if direction is unknown
+                image(this.ratSprites.forward, this.x, this.y, this.size, this.size);
+                break;
     }
   }
+}
 
 //enemy = new Enemy (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
