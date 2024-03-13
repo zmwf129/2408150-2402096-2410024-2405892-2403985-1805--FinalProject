@@ -293,7 +293,6 @@ function draw() {
 
     background(0);
     
-    
     // Loops through all tiles each time draw() is called
     for (let across = 0; across < numAcross; across++) {
         for (let down = 0; down < numDown; down++) {
@@ -322,7 +321,7 @@ function draw() {
 
     //showing the rats
     //rat.display();
-    
+
 }
 
 // VARIOUS SCREENS
@@ -389,6 +388,62 @@ class Player {
         //the x/y position of the tile the player is moving to (the target)
         this.tx = this.xPos; //set these to the initial player pos
         this.ty = this.yPos;
+
+        //Player collsion tracking
+        this.playerLeft;
+        this.playerRight;
+        this.playerTop;
+        this.playerBottom;
+
+        //Initialising Corner Coordinate Objects
+        this.topLeft = {};
+        this.topRight = {};
+        this.bottomLeft = {};
+        this.bottomRight = {};
+        
+        ////Collision Padding
+        this.collisionXPadding = 10;
+        this.collisionYPadding = 5;
+    }
+
+    update() { 
+        //Movement Code
+        this.trackCorners(); // Check current position of corners each frame
+        this.setXDirection(); // Check if the player is pressing a or d, then set dirX
+        this.hasPlayerReachedJumpHeight(); // Check is player has reached jump height and should start falling
+        this.handleCollisions(); // Chek collisions on x then y axis
+        this.move(); // move the damn thing
+
+        //Display and Debug
+        this.display();
+        this.debug();
+        
+    }
+
+    rackCorners() { //Tracks the corner values of the player
+        //X and Y Variables
+        this.playerLeft = this.xPos + this.collisionXPadding;
+        this.playerRight = this.xPos + this.tileSize - 1 - this.collisionXPadding;
+        this.playerTop = this.yPos + this.collisionYPadding;
+        this.playerBottom = this.yPos + this.tileSize - 1;
+
+        //Corner Coordinate Objects
+        this.topLeft = {
+            x: this.playerLeft,
+            y: this.playerTop
+        }
+        this.topRight = {
+            x: this.playerRight,
+            y: this.playerTop
+        }
+        this.bottomLeft = {
+            x: this.playerLeft,
+            y: this.playerBottom
+        }
+        this.bottomRight = {
+            x: this.playerRight,
+            y: this.playerBottom
+        }
     }
 
     setDirection() {
@@ -427,23 +482,9 @@ class Player {
             //With the direction set, we can now move to the next code block to check if we can move!
             this.checkTargetTile();
 
-            // moves with screen START
-//   dx = center.x - p.x;
-//   dy = center.y - p.y;
-  
-//   if(abs(dx) > 100){
-//     center.x -= dx - 100 * dx / abs(dx)
-//   }
-  
-//   if(abs(dy) > 100){
-//     center.y -= dy - 100 * dy / abs(dy)
-//   }
-  
-//   translate(origin.x - center.x, origin.y - center.y)
+      }
 
-        }
-
-    }
+   }
 
     //This checks what tile the player wants to move to and if
     //the player is allowed to move there
@@ -506,6 +547,17 @@ class Player {
         imageMode(CORNER);
         image(this.currentSprite, this.xPos, this.yPos, this.size, this.size);
 
+    }
+    debug() {
+        //Collision Box
+        stroke(255,0,0); // red top
+        line(this.topLeft.x, this.topLeft.y, this.topRight.x, this.topRight.y);
+        stroke(34,139,34); // green bottom
+        line(this.bottomLeft.x, this.bottomLeft.y, this.bottomRight.x, this.bottomRight.y);
+        stroke(0,0,255); // blue left
+        line(this.topLeft.x, this.topLeft.y, this.bottomLeft.x, this.bottomLeft.y);
+        stroke(255,192,203); // pink right
+        line(this.topRight.x, this.topRight.y, this.bottomRight.x, this.bottomRight.y);
     }
 
 }
