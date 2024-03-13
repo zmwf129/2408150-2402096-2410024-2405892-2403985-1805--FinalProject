@@ -65,7 +65,9 @@ let playerSize = tileSize;
 
 // LVL 1 RATS
 // Had to comment everything to do with the rats other than the rat class becuase it says in the console that rat is not defined
-let rats = [];
+let rat = [];
+let ratSpeed = 3;
+let ratSize = tileSize;
 
 function preload() {
     // game start screen
@@ -213,6 +215,8 @@ function preload() {
     textures[106] = loadImage("Assets/RadioWBone3.png");
     textures[107] = loadImage("Assets/RadioWBone4.png");
 
+    //bulletsprite
+    textures[108] = loadImage("Assets/bulletasset.png")
 
     ratSprites = {
         ratLnorm: loadImage("Assets/RatLeft.png"),
@@ -273,7 +277,10 @@ function setup() {
 
     //Create Player
     player = new Player (playerSprites, 7, 14, tileSize, playerSpeed, tileSize, tileRules);
+    //Create Rat
+    rat = new Rat(ratSprites, 7, 5, tileSize, ratSpeed, tileSize, tileRules);
 
+    
 }
 
 function draw() {
@@ -333,9 +340,8 @@ function draw() {
     player.display();
     player.move();
 
-    for (let i = 0; i < rats.length; i++) {
-        rats[i].display();
-      }
+    //showing the rats
+    //rat.display();
 
 }
 
@@ -611,44 +617,114 @@ class Tile {
 
 }
 
-class Rat {
-    constructor(x, y) {
-      this.x = x;
-      this.y = y;
-      this.size = 20;
-    }
+class Rat{
+    constructor(sprites, startAcross, startDown, size, speed, tileSize, tileRules) {
+        //Attach sprite to key in object
+        this.sprites = sprites;
+
+        //set current sprite, we'll initialise it down for now
+        this.currentSprite = this.sprites.Down;
+
+        //Store starting tile info. Later, we will use these to store the current tile the player is on.
+        this.across = startAcross;
+        this.down = startDown;
+        
+        //convert tile coordinates into pixel coordinates
+        this.xPos = this.across * tileSize;
+        this.yPos = this.down * tileSize;
+
+        //storing size and speed
+        this.size = size;
+        this.speed = speed;
+
+        //Check rules/collisions for the tile the player wants to move to (target Tile)
+        this.tileRules = tileRules;
+        this.tileSize = tileSize;
+
+        }
     
-    display() {
-      // Display the enemy
-      fill(255, 0, 0);
-      ellipse(this.x, this.y, this.size, this.size);
+    // Need to edit it for just rats and not the player
+    //This checks what tile the player wants to move to and if
+    //the player is allowed to move there
+    checkTargetTile() {
+        //First, get what tile the player is currently on
+        this.across = Math.floor(this.xPos / this.tileSize);
+        this.down = Math.floor(this.yPos / this.tileSize);
+
+        //Calculate the coordinates of the target tile
+        let nextTileHorizontal = this.across + this.dirX;
+        let nextTileVertical = this.down + this.dirY;
+
+        //check is that tile is in bounds of the map
+        // remember: && means AND (i.e. below is asking if ALL conditions are true)
+        if (
+            
+            nextTileHorizontal >= 0 && //top of map
+            nextTileHorizontal < numAcross && //bottom of map
+            nextTileVertical >= 0 && //left edge of map
+            nextTileVertical < numDown //right edge of map
+        ) {
+            //if it is in bounds, have we set it as moveable in our ruleMap:
+            if (this.tileRules[nextTileVertical][nextTileHorizontal] != 1) { // remember we have to swap these!
+                //if the target tile is walkable, then...
+                //...calculate the precise x and y coordinate of the target tile...
+                this.tx = nextTileHorizontal * this.tileSize;
+                this.ty = nextTileVertical * this.tileSize;
+
+            }
+
+        }
+
     }
-  }
+
+    display() {
+        //Displays the texture of instance of NPC class
+        noStroke();
+        image(this.texture, this.xPos, this.yPos, this.tileSize, this.tileSize)
+    }
+
+    // Add other methods for rat movement and behavior here...
+}
+
 
 
 //enemy = new Enemy (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 // class Boss(){}
 
-class Bullet {
-     bullet(x, y) {
-        this.x = x;
-        this.y = y;
-        this.r = 8;
-        this.toDelete = false;
-      
-        this.show = function() {
-          noStroke();
-          fill(150, 0, 255);
-          ellipse(this.x, this.y, this.r*2, this.r*2);
-        }
-      
-        this.move = function() {
-          this.y = this.y - 5;
-        }
-      
-      }
+        
+    
+
+    
 
 
 
-}
+
+
+
+
+
+
+
+//class Bullet {
+   //bullet(x, y, bulletasset) {
+    ///this.x = x;
+    //this.y = y;
+        //this.r = 8;
+     //   this.toDelete = false;
+      
+       // this.show = function() {
+         // noStroke();
+          //fill(150, 0, 255);
+          //ellipse(this.x, this.y, this.r*2, this.r*2);
+       // }
+      
+        //this.move = function() {
+         // this.y = this.y - 5;
+       // }
+      
+     // }
+
+
+
+//}
