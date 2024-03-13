@@ -48,6 +48,7 @@ Freddie:
 River: 
 - Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers with one final boss at the end.
 - Created and added the assets (acid, pipes and sprites), created the collisions on the tilemap so the player can't walk onto the acid, made it so the sprite would face the direction the player inputed (W is forward), started to create the enemy class, added the player assets to the code so the assets would appear and be controllable. 
+- Added player collisions(collison box + variables etc).
 
 Velvet: 
 - Researched and implemented variables for a score system
