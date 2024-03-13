@@ -287,9 +287,6 @@ function setup() {
 
     //Create Player
     player = new Player (playerSprites, 7, 14, tileSize, playerSpeed, tileSize, tileRules);
-   
-    
-
     
 }
 
