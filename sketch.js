@@ -215,6 +215,8 @@ function preload() {
     textures[106] = loadImage("Assets/RadioWBone3.png");
     textures[107] = loadImage("Assets/RadioWBone4.png");
 
+    //bulletsprite
+    textires[108] = loadImage("Assets/bulletasset.png")
 
     ratSprites = {
         ratLnorm: loadImage("Assets/RatLeft.png"),
