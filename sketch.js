@@ -87,7 +87,7 @@ function preload() {
     textures[8] = loadImage("Assets/RadioWater5.png");
     textures[9] = loadImage("Assets/RadioWater6.png");
 
-    // PIPES
+    // Pipes
     // Straight/Side
     textures[10] = loadImage("Assets/PipeStraight.png")
     textures[11] = loadImage("Assets/PipeStraightRW1.png");
@@ -142,7 +142,7 @@ function preload() {
     textures[48] = loadImage("Assets/3wayTLRSW.png");
     textures[49] = loadImage("Assets/3WayTLRRW7.png");
 
-    //PLATFORMS
+    //Platforms
     textures[50] = loadImage("Assets/PlatformBL.png");
     textures[51] = loadImage("Assets/PlatformBLRW1.png");
     textures[52] = loadImage("Assets/PlatformBLRW2.png");
