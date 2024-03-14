@@ -58,7 +58,7 @@ let tileRules = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  // 14
 ]
 
-    //INITIALISE VARIABLES FOR PLAYER
+//INITIALISE VARIABLES FOR PLAYER
 let player;
 let playerSpeed = 5;
 let playerSize = tileSize;
@@ -75,7 +75,7 @@ function preload() {
     //MUSIC
     //bgMusic = loadSound('Assets/PUT MUSIC FILE NAME HERE');
 
-    // BACKGROUND
+    // Background
     textures[0] = loadImage("Assets/Acid.png");
     textures[1] = loadImage("Assets/SewerWater1.png");
     textures[2] = loadImage("Assets/SewerWater2.png");
