@@ -52,7 +52,7 @@ River:
 - Worked with Velvet to create a basic rendition of the Rat/Enemy class and made it so they would appear at random on the tile map. (At the time of writing this they appear in the center or corner of the tiles).
 
 Velvet: 
-- Researched and implemented variables for a score system.
-- Helped fix bugs.
-- Worked together with river to fix and create the rat class.
-- I displayed the rat sprites by replacing the placeholder ellipses.
+- Researched and implemented variables for a score system and displayed the text over the tilemap.
+- Helped fix bugs such as the rat class, as the rat variables were causing issues and stopping the game from working, so I had to rename the 'EnemyLvl' to 'Rat' and renamed the variables underneath the class such as speed etc, which managed to make it work.
+- I worked with River on the rat class and I managed to display the rats after river displayed them as ellipses as a placeholder, where I managed to get the texture asset to display on the screen.
+
