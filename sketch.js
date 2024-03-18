@@ -78,9 +78,9 @@ function preload() {
     //titleScreen = loadImage("Assets/titlesScreen.jpg");
     //gameWonScreen = loadImage("Assets/gameWonScreen.jpg");
 
-    MUSIC AND SOUND EFFECTS
-    soundFormats('mp3'); // file format for audio
-    themeSong = loadSound('Assets/ratattacktheme.mp3');
+    // MUSIC AND SOUND EFFECTS
+    // soundFormats('mp3'); // file format for audio
+    // themeSong = loadSound('Assets/ratattacktheme.mp3');
 
     ////////////////////////////////////////////////////////
     // IMAGE ASSETS
