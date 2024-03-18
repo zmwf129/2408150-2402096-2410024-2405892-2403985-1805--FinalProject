@@ -284,24 +284,14 @@ function setup() {
               tileY = floor(random(tileSize));
             } while (tileSize === 1);
             
-            let x = tileX * tileSize + tileSize / 2;
-            let y = tileY * tileSize + tileSize / 2;
+            let x = tileX * tileSize + tileSize / 1;
+            let y = tileY * tileSize + tileSize / 1;
             
-            let rat = new Rat(x, y);
+            let rat = new Rat(x, y, tileRules);
             rats.push(rat);
           }
-    }
+    
 
-    for (let i = 0; i < 5; i++) {
-        let tileX, tileY;
-        do {
-          tileX = floor(random(tileSize));
-          tileY = floor(random(tileSize));
-        } while (tileSize === 1);
-        
-        let x = tileX * tileSize + tileSize / 1;
-        let y = tileY * tileSize + tileSize / 1;
-        
         let rat = new Rat(x, y);
         rats.push(rat);
       } // end of tile creation
@@ -475,7 +465,7 @@ class Player {
         
     }
 
-    rackCorners() { //Tracks the corner values of the player
+    trackCorners() { //Tracks the corner values of the player
         //X and Y Variables
         this.playerLeft = this.xPos + this.collisionXPadding;
         this.playerRight = this.xPos + this.tileSize - 1 - this.collisionXPadding;
@@ -652,10 +642,28 @@ class Tile {
 }
 
 class Rat {
-    constructor(x, y) {
+    constructor(x, y, tileRules) {
         this.x = x;
         this.y = y;
-        this.size = 50;
+        this.tileSize = tileSize;
+        this.tileRules = tileRules;
+
+        //Rat collsion tracking
+        this.RatLeft;
+        this.RatRight;
+        this.RatForward;
+        this.RatDownward;
+
+        //Initialising Corner Coordinate Objects
+        this.topLeft = {};
+        this.topRight = {};
+        this.bottomLeft = {};
+        this.bottomRight = {};
+        
+        ////Collision Padding
+        this.collisionXPadding = 10;
+        this.collisionYPadding = 5;
+
         // Load rat sprites
         this.ratSprites = {
             left: loadImage("Assets/RatLeft.png"),
@@ -675,13 +683,13 @@ class Rat {
                 image(this.ratSprites.left, this.x, this.y, this.tileSize, this.tileSize);
                 break;
             case "right":
-                image(this.ratSprites.right, this.x, this.y, this.size, this.size);
+                image(this.ratSprites.right, this.x, this.y, this.tileSize, this.tileSize);
                 break;
             case "forward":
-                image(this.ratSprites.forward, this.x, this.y, this.size, this.size);
+                image(this.ratSprites.forward, this.x, this.y, this.tileSize, this.tileSize);
                 break;
             case "downward":
-                image(this.ratSprites.downward, this.x, this.y, this.size, this.size);
+                image(this.ratSprites.downward, this.x, this.y, this.tileSize, this.tileSize);
                 break;
             default:
                 // Default to forward sprite if direction is unknown
@@ -690,6 +698,55 @@ class Rat {
     }
         //imageMode(CORNER)
   }
+
+  debug() {
+    //Collision Box
+    stroke(255,0,0); // red top
+    line(this.topLeft.x, this.topLeft.y, this.topRight.x, this.topRight.y);
+    stroke(34,139,34); // green bottom
+    line(this.bottomLeft.x, this.bottomLeft.y, this.bottomRight.x, this.bottomRight.y);
+    stroke(0,0,255); // blue left
+    line(this.topLeft.x, this.topLeft.y, this.bottomLeft.x, this.bottomLeft.y);
+    stroke(255,192,203); // pink right
+    line(this.topRight.x, this.topRight.y, this.bottomRight.x, this.bottomRight.y);
+}
+
+    update() {
+        // Updates the collison 
+        this.trackCorners();
+        this.setXDirection();
+        this.handleCollisions();
+
+    }
+
+    trackCorners() { //Tracks the corner values of the Rat
+        //X and Y Variables
+        this.RatLeft = this.xPos + this.collisionXPadding;
+        this.RatRight = this.xPos + this.tileSize - 1 - this.collisionXPadding;
+        this.RatForward = this.yPos + this.collisionYPadding;
+        this.RatDownward = this.yPos + this.tileSize - 1;
+
+        //Corner Coordinate Objects
+        this.topLeft = {
+            x: this.RatLeft,
+            y: this.RatTop
+        }
+        this.topRight = {
+            x: this.RatRight,
+            y: this.RatTop
+        }
+        this.bottomLeft = {
+            x: this.RatLeft,
+            y: this.RatBottom
+        }
+        this.bottomRight = {
+            x: this.RatRight,
+            y: this.RatBottom
+            
+        }
+
+    }
+
 }
 
 //BULLET CODE NOT WORKING YET 
