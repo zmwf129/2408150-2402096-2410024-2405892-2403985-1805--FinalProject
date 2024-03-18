@@ -214,7 +214,7 @@ function preload() {
     textures[107] = loadImage("Assets/RadioWBone4.png");
 
     //bulletsprite
-    textures[108] = loadImage("Assets/bulletasset.png")
+    bulletsprite = loadImage("Assets/bulletasset.png")
 
     ratSprites = {
         ratLnorm: loadImage("Assets/RatLeft.png"),
@@ -375,9 +375,9 @@ function keyPressed() {
     player.setDirection();
 
     if (key === '  ')   {
-       var bullet = new Bullet(player.x, height);
-       bullet.push(bullet);
-       console.log("shot");
+    bullet.direction = player.direction
+    
+       
     }
 
 }
@@ -666,29 +666,68 @@ class Rat {
   }
 }
 
+//BULLET CODE NOT WORKING YET 
+
+//function preload() {
+  //bulletImage = loadImage('bulletasset.png');
+//}  
+  //for (let i = bullets.length - 1; i >= 0; i--) {
+    //bullets[i].update();
+    //bullets[i].display();
+    
+    //if (bullets[i].isOffscreen()) {
+     // bullets.splice(i, 1);
+   // }
+//  }
+//}
+
+//function keyPressed() {
+  //if (keyCode === 32) { // Spacebar
+    //let bullet = new Bullet(player.x, player.y, player.angle);
+    //bullets.push(bullet);
+ // }
+//} 
+  //display() {
+    //fill(0);
+    //rectMode(CENTER);
+    //translate(this.x, this.y);
+    //rotate(this.angle);
+    //rect(0, 0, tileSize, tileSize);
+    //resetMatrix();
+  //}
+//}
+
+//class Bullet {
+  //constructor(x, y, angle) {
+    // Calculate the center of the tile based on the tileSize
+   // this.x = round(x / tileSize) * tileSize + tileSize / 2;
+   // this.y = round(y / tileSize) * tileSize + tileSize / 2;
+   // this.speed = 5;
+   // this.angle = angle;
+    //this.velocity = p5.Vector.fromAngle(angle);
+ // }
+  
+  //update() {
+   // this.x += this.velocity.x * this.speed;
+    //this.y += this.velocity.y * this.speed;
+ // }
+  
+ // display() {
+   // imageMode(CENTER);
+  //  push();
+   // translate(this.x, this.y);
+   // rotate(this.angle);
+   // image(bulletImage, 0, 0, tileSize, tileSize); // Adjust size as needed
+  //  pop();
+ // }
+  
+ // isOffscreen() {
+    //return (this.x < 0 || this.x > width || this.y < 0 || this.y > height);
+ // }
+//}
+
 //enemy = new Enemy (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
 // class Boss(){}
 
-//class Bullet {
-   //bullet(x, y, bulletasset) {
-    ///this.x = x;
-    //this.y = y;
-        //this.r = 8;
-     //   this.toDelete = false;
-      
-       // this.show = function() {
-         // noStroke();
-          //fill(150, 0, 255);
-          //ellipse(this.x, this.y, this.r*2, this.r*2);
-       // }
-      
-        //this.move = function() {
-         // this.y = this.y - 5;
-       // }
-      
-     // }
 
-
-
-//}
