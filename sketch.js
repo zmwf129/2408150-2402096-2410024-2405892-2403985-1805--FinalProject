@@ -314,9 +314,9 @@ function setup() {
 
 function backgroundMusic() {
     themeSong.play();
-    themeSong.loop(); // puts song on loop after ending
+    // themeSong.loop(); // puts song on loop after ending
     themeSong.setVolume(1);
-    //userStartAudio();
+    userStartAudio();
 }
 
 
