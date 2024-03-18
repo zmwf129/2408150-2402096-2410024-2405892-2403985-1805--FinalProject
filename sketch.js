@@ -399,8 +399,6 @@ function keyPressed() {
     }       
     }
 
-}
-
 class Player {
 
     constructor(sprites, startAcross, startDown, size, speed, tileSize, tileRules) {
