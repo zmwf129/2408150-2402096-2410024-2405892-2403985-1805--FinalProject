@@ -693,7 +693,7 @@ class Bullet {
    push();
    translate(this.x, this.y);
    rotate(this.angle);
-   image(bulletasset, 0, 0, tileSize, tileSize); 
+   image(bulletsprite, 0, 0, tileSize, tileSize); 
  }
   
   isOffscreen() {
