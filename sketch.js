@@ -371,13 +371,10 @@ function keyPressed() {
 // if(gameStatus == 'startup screen' && keyCode === 13){ // if on startup screen, pressing ENTER will trigger game.
 //     gameStatus = 'play';
 // }
-
-    player.setDirection();
-
     if (key === '  ')   {
-    bullet.direction = player.direction
-    
-       
+    let bullet = new Bullet(player.x, player.y, player.angle);
+    bullets.push(bullet);
+    }       
     }
 
 }
@@ -668,63 +665,41 @@ class Rat {
 
 //BULLET CODE NOT WORKING YET 
 
-//function preload() {
-  //bulletImage = loadImage('bulletasset.png');
-//}  
-  //for (let i = bullets.length - 1; i >= 0; i--) {
+//for (let i = bullets.length - 1; i >= 0; i--) {
     //bullets[i].update();
     //bullets[i].display();
     
     //if (bullets[i].isOffscreen()) {
      // bullets.splice(i, 1);
-   // }
-//  }
-//}
 
-//function keyPressed() {
-  //if (keyCode === 32) { // Spacebar
-    //let bullet = new Bullet(player.x, player.y, player.angle);
-    //bullets.push(bullet);
- // }
-//} 
-  //display() {
-    //fill(0);
-    //rectMode(CENTER);
-    //translate(this.x, this.y);
-    //rotate(this.angle);
-    //rect(0, 0, tileSize, tileSize);
-    //resetMatrix();
-  //}
-//}
 
-//class Bullet {
-  //constructor(x, y, angle) {
-    // Calculate the center of the tile based on the tileSize
-   // this.x = round(x / tileSize) * tileSize + tileSize / 2;
-   // this.y = round(y / tileSize) * tileSize + tileSize / 2;
-   // this.speed = 5;
-   // this.angle = angle;
-    //this.velocity = p5.Vector.fromAngle(angle);
- // }
+class Bullet {
+  constructor(x, y, angle) {
+    this.y = round(y / tileSize) * tileSize + tileSize / 2;
+    this.x = round(x / tileSize) * tileSize + tileSize / 2;
+    this.speed = 5;
+    this.angle = angle;
+    this.velocity = p5.Vector.fromAngle(angle);
+    this.tilesize = 8
+}
   
-  //update() {
-   // this.x += this.velocity.x * this.speed;
-    //this.y += this.velocity.y * this.speed;
- // }
+  update() {
+   this.x += this.velocity.x * this.speed;
+   this.y += this.velocity.y * this.speed;
+ }
   
- // display() {
-   // imageMode(CENTER);
-  //  push();
-   // translate(this.x, this.y);
-   // rotate(this.angle);
-   // image(bulletImage, 0, 0, tileSize, tileSize); // Adjust size as needed
-  //  pop();
- // }
+  display() {
+   imageMode(CENTER);
+   push();
+   translate(this.x, this.y);
+   rotate(this.angle);
+   image(bulletasset, 0, 0, tileSize, tileSize); 
+ }
   
- // isOffscreen() {
-    //return (this.x < 0 || this.x > width || this.y < 0 || this.y > height);
- // }
-//}
+  isOffscreen() {
+    return (this.x < 0 || this.x > width || this.y < 0 || this.y > height);
+ }
+}
 
 //enemy = new Enemy (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
 
