@@ -1,8 +1,6 @@
 // used to organise startup and gameplay screens
 //let gameStatus = 'startup screen',
 
-// let bgMusic;
-
 //INITIALISE VARIABLES
 let tilemap = [];
 let numDown = 15;
@@ -11,9 +9,13 @@ let tileSize = 50;
 let textures = [];
 let score = 0;
 // let scene = 0;
+let themeSong;
+let shootSound;
 
 //Bullet variable
 let bullet = [];
+
+////////////////////////////////////////////////////////
 
 let graphicMap = [ 
     // I added the different texture numbers to the map to create the environment
@@ -58,6 +60,8 @@ let tileRules = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  // 14
 ]
 
+///////////////////////////////////////////////////////////
+
 //INITIALISE VARIABLES FOR PLAYER
 let player;
 let playerSpeed = 5;
@@ -67,13 +71,16 @@ let playerSize = tileSize;
 // Had to comment everything to do with the rats other than the rat class becuase it says in the console that rat is not defined
 let rats = [];
 
+///////////////////////////////////////////////////////////////
+
 function preload() {
     // game start screen
     //titleScreen = loadImage("Assets/titlesScreen.jpg");
     //gameWonScreen = loadImage("Assets/gameWonScreen.jpg");
 
-    //MUSIC AND SOUND EFFECTS
-    //bgMusic = loadSound('Assets/ratattacktheme.mp3');
+    MUSIC AND SOUND EFFECTS
+    soundFormats('mp3'); // file format for audio
+    themeSong = loadSound('Assets/ratattacktheme.mp3');
 
     ////////////////////////////////////////////////////////
     // IMAGE ASSETS
