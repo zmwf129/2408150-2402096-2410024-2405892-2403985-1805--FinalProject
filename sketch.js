@@ -72,10 +72,13 @@ function preload() {
     //titleScreen = loadImage("Assets/titlesScreen.jpg");
     //gameWonScreen = loadImage("Assets/gameWonScreen.jpg");
 
-    //MUSIC
-    //bgMusic = loadSound('Assets/PUT MUSIC FILE NAME HERE');
+    //MUSIC AND SOUND EFFECTS
+    //bgMusic = loadSound('Assets/ratattacktheme.mp3');
 
-    // Background
+    ////////////////////////////////////////////////////////
+    // IMAGE ASSETS
+    
+    // BACKGROUND
     textures[0] = loadImage("Assets/Acid.png");
     textures[1] = loadImage("Assets/SewerWater1.png");
     textures[2] = loadImage("Assets/SewerWater2.png");
@@ -87,7 +90,31 @@ function preload() {
     textures[8] = loadImage("Assets/RadioWater5.png");
     textures[9] = loadImage("Assets/RadioWater6.png");
 
-    // Pipes
+     //Objects In Liquid
+    textures[89] = loadImage("Assets/RadioWRubbish1.png");
+    textures[90] = loadImage("Assets/RadioWRubbish2.png");
+    textures[91] = loadImage("Assets/RadioWRubbish3.png");
+    textures[92] = loadImage("Assets/RadioWRubbish4.png");
+    textures[93] = loadImage("Assets/RadioWRubbish5.png");
+    textures[94] = loadImage("Assets/RadioWRubbish6.png");
+    textures[95] = loadImage("Assets/RadioWRubbish7.png");
+    textures[96] = loadImage("Assets/SewerWRubbish1.png");
+    textures[97] = loadImage("Assets/SewerWRubbish2.png");
+    textures[98] = loadImage("Assets/SewerWRubbish3.png");
+    textures[99] = loadImage("Assets/SewerWRubbish4.png");
+    textures[100] = loadImage("Assets/SewerWterminator.png");
+    textures[101] = loadImage("Assets/SewerWGator.png");
+    textures[102] = loadImage("Assets/RadioW2Bones1.png");
+    textures[103] = loadImage("Assets/RadioW2Bones2.png");
+    textures[104] = loadImage("Assets/RadioWBone1.png");
+    textures[105] = loadImage("Assets/RadioWBone2.png");
+    textures[106] = loadImage("Assets/RadioWBone3.png");
+    textures[107] = loadImage("Assets/RadioWBone4.png");
+
+    //////////////
+
+    // PIPES
+    
     // Straight/Side
     textures[10] = loadImage("Assets/PipeStraight.png")
     textures[11] = loadImage("Assets/PipeStraightRW1.png");
@@ -98,9 +125,9 @@ function preload() {
     textures[15] = loadImage("Assets/PipeSideRW2.png");
     textures[16] = loadImage("Assets/PipeSideRW3.png");
     textures[17] = loadImage("Assets/PipeSideSW.png");
+    
 
-
-    // Curved
+    // CURVED
     textures[18] = loadImage("Assets/PipeRightUp.png")
     textures[19] = loadImage("Assets/PipeRightUpRW2.png");
     textures[20] = loadImage("Assets/PipeRightUpRW8.png");
@@ -121,7 +148,8 @@ function preload() {
     textures[32] = loadImage("Assets/PipeLeftBottomRW6.png")
     textures[33] = loadImage("Assets/PipeLeftBottomSW.png")
 
-    //3 Way Pipes
+    
+    //3 WAY PIPES
     textures[34] = loadImage("Assets/3wayBLU.png");
     textures[35] = loadImage("Assets/3wayBLURW3.png");
     textures[36] = loadImage("Assets/3wayBLURW6.png");
@@ -142,7 +170,9 @@ function preload() {
     textures[48] = loadImage("Assets/3wayTLRSW.png");
     textures[49] = loadImage("Assets/3WayTLRRW7.png");
 
-    //Platforms
+    ////////
+    
+    //PLATFORMS
     textures[50] = loadImage("Assets/PlatformBL.png");
     textures[51] = loadImage("Assets/PlatformBLRW1.png");
     textures[52] = loadImage("Assets/PlatformBLRW2.png");
@@ -192,30 +222,12 @@ function preload() {
     textures[87] = loadImage("Assets/PlatformTMRW3.png");
     textures[88] = loadImage("Assets/PlatformTMSW.png");
 
-    //Objects In Liquid
-    textures[89] = loadImage("Assets/RadioWRubbish1.png");
-    textures[90] = loadImage("Assets/RadioWRubbish2.png");
-    textures[91] = loadImage("Assets/RadioWRubbish3.png");
-    textures[92] = loadImage("Assets/RadioWRubbish4.png");
-    textures[93] = loadImage("Assets/RadioWRubbish5.png");
-    textures[94] = loadImage("Assets/RadioWRubbish6.png");
-    textures[95] = loadImage("Assets/RadioWRubbish7.png");
-    textures[96] = loadImage("Assets/SewerWRubbish1.png");
-    textures[97] = loadImage("Assets/SewerWRubbish2.png");
-    textures[98] = loadImage("Assets/SewerWRubbish3.png");
-    textures[99] = loadImage("Assets/SewerWRubbish4.png");
-    textures[100] = loadImage("Assets/SewerWterminator.png");
-    textures[101] = loadImage("Assets/SewerWGator.png");
-    textures[102] = loadImage("Assets/RadioW2Bones1.png");
-    textures[103] = loadImage("Assets/RadioW2Bones2.png");
-    textures[104] = loadImage("Assets/RadioWBone1.png");
-    textures[105] = loadImage("Assets/RadioWBone2.png");
-    textures[106] = loadImage("Assets/RadioWBone3.png");
-    textures[107] = loadImage("Assets/RadioWBone4.png");
 
-    //bulletsprite
+    //BULLET SPRITE
     bulletsprite = loadImage("Assets/bulletasset.png")
 
+
+    // RAT SPRITES NORMAL
     ratSprites = {
         ratLnorm: loadImage("Assets/RatLeft.png"),
         ratRnorm: loadImage("Assets/RatRight.png"),
@@ -224,11 +236,14 @@ function preload() {
 
     }
 
+    // PLAYER SPRITES
     playerSprites = {
         Up: loadImage("Assets/SpriteForward.png"),
         Down: loadImage("Assets/SpriteDownward.png"),
         Left: loadImage("Assets/SpriteLeft.png"),
         Right: loadImage("Assets/SpriteRight.png")
+
+    // END OF IMAGE SPRITES
 
     }
 
