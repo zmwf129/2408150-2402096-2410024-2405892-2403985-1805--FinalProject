@@ -9,6 +9,8 @@ let tileSize = 50;
 let textures = [];
 let score = 0;
 // let scene = 0;
+
+// SOUNDS
 let themeSong;
 let shootSound;
 
@@ -79,8 +81,9 @@ function preload() {
     //gameWonScreen = loadImage("Assets/gameWonScreen.jpg");
 
     // MUSIC AND SOUND EFFECTS
-    // soundFormats('mp3'); // file format for audio
-    // themeSong = loadSound('Assets/ratattacktheme.mp3');
+    soundFormats('mp3'); // file format for audio - all audio is mp3
+    themeSong = loadSound('Assets/ratattacktheme');
+    //shootSound = loadSound('Assets/SOUND NAME HERE');
 
     ////////////////////////////////////////////////////////
     // IMAGE ASSETS
@@ -273,9 +276,7 @@ function setup() {
             tilemap[across][down] = new Tile(textures[textureNum], across, down, tileSize, tileID); // THIS LINE CREATES OUR NEW TILE!
 
             tileID++;
-
         }
-
         for (let i = 0; i < 5; i++) {
             let tileX, tileY;
             do {
@@ -289,7 +290,6 @@ function setup() {
             let rat = new Rat(x, y);
             rats.push(rat);
           }
-
     }
 
     for (let i = 0; i < 5; i++) {
@@ -304,13 +304,21 @@ function setup() {
         
         let rat = new Rat(x, y);
         rats.push(rat);
-      }
-    //Tile creation finished
+      } // end of tile creation
 
     //Create Player
     player = new Player (playerSprites, 7, 14, tileSize, playerSpeed, tileSize, tileRules);
     
+    backgroundMusic();
 }
+
+function backgroundMusic() {
+    themeSong.play();
+    themeSong.loop(); // puts song on loop after ending
+    themeSong.setVolume(1);
+    //userStartAudio();
+}
+
 
 function draw() {
 
