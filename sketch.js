@@ -630,7 +630,7 @@ class Rat {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.size = 20;
+        this.size = 50;
         // Load rat sprites
         this.ratSprites = {
             left: loadImage("Assets/RatLeft.png"),
@@ -644,7 +644,7 @@ class Rat {
     
     display() {
    // Display the rat based on its direction
-        imageMode(CENTER);
+        //imageMode(CENTER);
         switch (this.direction) {
             case "left":
                 image(this.ratSprites.left, this.x, this.y, this.tileSize, this.tileSize);
@@ -663,6 +663,7 @@ class Rat {
                 image(this.ratSprites.forward, this.x, this.y, this.size, this.size);
                 break;
     }
+        //imageMode(CORNER)
   }
 }
 
