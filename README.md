@@ -49,7 +49,8 @@ River:
 - Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers with one final boss at the end. Worked with Amanda to create the main narrative.
 - Created and added the assets (acid, pipes and sprites), created the collisions on the tilemap so the player can't walk onto the acid, made it so the sprite would face the direction the player inputed (W is forward), started to create the enemy class, added the player assets to the code so the assets would appear and be controllable. 
 - Added player collisions (collison box + variables etc).
-- Worked with Velvet to create a basic rendition of the Rat/Enemy class and made it so they would appear at random on the tile map. (At the time of writing this they appear in the center or corner of the tiles).
+- Worked with Velvet to create a basic rendition of the Rat/Enemy class where the rats would appear at random on the tile map. 
+- Made it so the rats spawn in the center of the tiles.
 
 Velvet: 
 - Researched and implemented variables for a score system and displayed the text over the tilemap.
