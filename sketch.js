@@ -79,8 +79,7 @@ function preload() {
     //gameWonScreen = loadImage("Assets/gameWonScreen.jpg");
 
     // MUSIC AND SOUND EFFECTS
-    // soundFormats('mp3'); // file format for audio
-    // themeSong = loadSound('Assets/ratattacktheme.mp3');
+    //themeSong = loadSound('Assets/ratattacktheme');
 
     ////////////////////////////////////////////////////////
     // IMAGE ASSETS
@@ -310,7 +309,15 @@ function setup() {
     //Create Player
     player = new Player (playerSprites, 7, 14, tileSize, playerSpeed, tileSize, tileRules);
     
+//backgroundMusic();
+
 }
+
+// function backgroundMusic(){
+//     themeSong.play();
+//     themeSong.setVolume();
+//     userStartAudio();
+//}
 
 function draw() {
 
@@ -397,9 +404,8 @@ function keyPressed() {
     let bullet = new Bullet(player.x, player.y, player.angle);
     bullets.push(bullet);
     }       
-    }
-
 }
+
 
 class Player {
 
