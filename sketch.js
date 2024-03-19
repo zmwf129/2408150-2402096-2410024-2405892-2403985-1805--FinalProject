@@ -412,15 +412,6 @@ if(gameStatus == 'instructions screen') {
     }
 
 }
-<<<<<<< HEAD
-player.setDirection()
-
-    if (key === ' ')   {
-        let bullet = new Bullet(player.x, player.y, player.angle);
-         bullet.push(bullet);
-
-    }       
-=======
 
 player.setDirection();
 
@@ -431,7 +422,6 @@ player.setDirection();
 
 }       
 
->>>>>>> 45c20da83daf44b5f9cc33fe0458a775ef722a5f
     }
 
 class Player {
@@ -762,11 +752,6 @@ class Rat {
     }
     
     display() {
-<<<<<<< HEAD
-        // Displays the rats
-        image(this.ratSprites.left, this.x, this.y, this.tileSize, this.tileSize);
-              
-=======
    // Display the rat based on its direction
         //imageMode(CENTER);
         switch (this.direction) {
@@ -788,7 +773,6 @@ class Rat {
                 break;
     }
         //imageMode(CORNER)
->>>>>>> 45c20da83daf44b5f9cc33fe0458a775ef722a5f
   }
 
   debug() {
@@ -841,32 +825,6 @@ class Rat {
 
 }
 
-<<<<<<< HEAD
-for (let i = bullet.length - 1; i >= 0; i--) {
-   // Update and display each bullet
-   bullet[i].update();
-   bullet[i].display();
-   
-   // Check if bullet is offscreen
-   if (bullet[i].isOffscreen()) {
-      // Remove bullet from array if it's offscreen
-      bullet.splice(i, 1);
-   }
-}
-
-// Bullet class definition
-class Bullet {
- constructor(x, y, angle, playerdirection) {
-    // Initialize bullet properties
-    this.y = Math.round(y / tileSize) * tileSize + tileSize / 2;
-    this.x = Math.round(x / tileSize) * tileSize + tileSize / 2;
-   this.speed = 5;
-    this.angle = angle;
-    this.velocity = p5.Vector.fromAngle(angle);
-   this.tilesize = 20;
- }
-}
-=======
 //for (let i = bullets.length - 1; i >= 0; i--) {
    // Update and display each bullet
   // bullets[i].update();
@@ -888,7 +846,6 @@ class Bullet {
       this.dirY = dirY;
       this.speed = 5; // Adjust the speed as needed
       this.size = 5; // Adjust the size as needed
->>>>>>> 45c20da83daf44b5f9cc33fe0458a775ef722a5f
   }
 
   // Update method to move the bullet
@@ -926,7 +883,6 @@ function gameLoop() {
  
 }
 
->>>>>>> e26d0891d71e18a6088f86d68d48dc7742ff7c98
 // Event listener for spacebar press
 document.addEventListener('keydown', function(event) {
   if (event.code === 'Space') {
