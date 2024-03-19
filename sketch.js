@@ -492,6 +492,8 @@ class Player {
     }
 
     setDirection() {
+
+        
         //Check if we're NOT currently moving...
         if (!this.isMoving) {
             //if not, then let's set the direction the player is travelling!
@@ -674,6 +676,10 @@ class Rat {
         // Set initial direction
         this.direction = "forward";
     }
+    
+
+    
+    
     
     display() {
    // Display the rat based on its direction
