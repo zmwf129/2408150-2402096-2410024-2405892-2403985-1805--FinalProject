@@ -43,8 +43,12 @@ Baar:
 - Currently researching for codes that help the screen move alongside the player's movements across the screen for when the level's environments are expanded (with one currently implemented but inactive for the time being). Also attempted to implement a simplified "demo" version of the starting screen with tutorials from YouTube, but worked with Amanda to include an updated version with my own graphics.
 
 Freddie:
-- Handling enemy movment - Researching how to create and implement enemy classes. Also researching how to code enemy movement and attacks.
-
+- Used an array to create a shooting mechanic that adds an additional level of interactivity into the game. The bullets fire when the Spacebar is pressed and they travel in the direction the player is facing until they leave the map.
+  - Added a mechanic to remove the bullets when they exit the screen to prevent lag.
+  - Bullets are centered within the tilemap, meaning they will always visually collide with the rats.
+- Miscellaneous graphic design - created a few assets and sound effect where needed.
+- Troubleshooting various different things, for example the games movement breaking repeatedly and the bullets not displaying.
+  
 River: 
 - Contributed to the narrative and layout of the game during conceptualisation, e.g. takes place in the sewers with one final boss at the end. Worked with Amanda to create the main narrative.
 - Created and added the assets (acid, pipes and sprites), created the collisions on the tilemap so the player can't walk onto the acid, made it so the sprite would face the direction the player inputed (W is forward), started to create the enemy class, added the player assets to the code so the assets would appear and be controllable. 
