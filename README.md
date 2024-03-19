@@ -55,12 +55,9 @@ River:
 - Added player collisions (collison box + variables etc).
 - Worked with Velvet to create a basic rendition of the Rat/Enemy class where the rats would appear at random on the tile map. 
 - Made it so the rats spawn in the center of the tiles.
-<<<<<<< HEAD
-- Made it so the rats spawn randomly on the tile map while not being able to spawn on the tiles labelled 1.
-- Made it so the rats face random directions when they spawn.
-- Created seperate JS files for the Bullet, Player and rat.
-=======
->>>>>>> e26d0891d71e18a6088f86d68d48dc7742ff7c98
+- Created seperate Rat, Bullet and player JS files to make things more organised.
+- Made it so the rats face a random direction on the tile map.
+- Made it so the rats only spawn on the tiles labelled 0 randomly.
 
 Velvet: 
 - Researched and implemented variables for a score system and displayed the text over the tilemap.
