@@ -394,8 +394,8 @@ player.setDirection();
 
     if (key === ' ')   {
 
-    let bullet = new Bullet(player.x, player.y, player.angle);
-    bullet.push(bullet);
+        let bullet = new Bullet(player.x, player.y, player.angle);
+        bullets.push(bullet);
 
       }       
 
@@ -453,7 +453,37 @@ class Player {
         ////Collision Padding
         this.collisionXPadding = 10;
         this.collisionYPadding = 5;
+
+        this.bullets = [];
+
+  }
+
+  handleCollisions() {
+          
+    // Iterate through all rats
+    for (let i = 0; i < rats.length; i++) {
+        let rat = rats[i];
+
+        // Check for collision between player and rat
+        if (
+            this.bottomLeft.x < rat.bottomRight.x &&
+            this.bottomRight.x > rat.bottomLeft.x &&
+            this.bottomLeft.y < rat.topLeft.y &&
+            this.bottomRight.y > rat.topLeft.y
+        ) {
+            // Collision detected, prevent player from moving to rat's tile
+            this.isMoving = false;
+            this.dirX = 0;
+            this.dirY = 0;
+
+            // Move player back to previous position
+            this.xPos = this.previousXPos;
+            this.yPos = this.previousYPos;
+          }
+
     }
+
+}
 
     update() { 
         //Movement Code
@@ -462,6 +492,8 @@ class Player {
         this.hasPlayerReachedJumpHeight(); // Check is player has reached jump height and should start falling
         this.handleCollisions(); // Chek collisions on x then y axis
         this.move(); // move the damn thing
+
+        this.handleCollisions();
 
         //Display and Debug
         this.display();
@@ -597,6 +629,14 @@ class Player {
 
     }
 
+    shootBullet() {
+      // Create a new bullet object
+      let bullet = new Bullet(this.xPos + this.size / 2, this.yPos + this.size / 2, this.dirX, this.dirY);
+      
+      // Add the bullet to the array
+      this.bullets.push(bullet);
+  }
+
     display() {
         imageMode(CORNER);
         image(this.currentSprite, this.xPos, this.yPos, this.size, this.size);
@@ -612,6 +652,7 @@ class Player {
         line(this.topLeft.x, this.topLeft.y, this.bottomLeft.x, this.bottomLeft.y);
         stroke(255,192,203); // pink right
         line(this.topRight.x, this.topRight.y, this.bottomRight.x, this.bottomRight.y);
+
     }
 
 }
@@ -775,62 +816,56 @@ class Rat {
 
 // Bullet class definition
 class Bullet {
-  constructor(x, y, angle, playerdirection) {
-    // Initialize bullet properties
-    this.y = math.round(y / tileSize) * tileSize + tileSize / 2;
-    this.x = math.round(x / tileSize) * tileSize + tileSize / 2;
-    this.speed = 5;
-    this.angle = angle;
-    this.velocity = p5.Vector.fromAngle(angle);
-    this.tilesize = 8;
+  constructor(x, y, dirX, dirY) {
+      this.x = x;
+      this.y = y;
+      this.dirX = dirX;
+      this.dirY = dirY;
+      this.speed = 5; // Adjust the speed as needed
+      this.size = 5; // Adjust the size as needed
   }
-  
-  // Method to set bullet direction based on player direction
-  initiatebulletdirection(playerdirection) {
-    // Determine bullet direction based on player direction
-    if (playerdirection == player.sprite.Up){
-      this.dirX = 0;
-      this.dirY = 1;
-    } else if (playerdirection == player.sprite.Down){
-      this.dirX = 0;
-      this.dirY = -1;
-    } else if (playerdirection == player.sprite.Right){
-      this.dirX = 1;
-      this.dirY = 0;
-    } else if (playerdirection == player.sprite.Left){
-      this.dirX = -1;
-      this.dirY = 0;
-    }
-  }  
-  
-  // Method to update bullet position
+
+  // Update method to move the bullet
   update() {
-    // Update bullet position based on velocity and direction
-    this.x += this.velocity.x * this.speed * this.dirX;
-    this.y += this.velocity.y * this.speed * this.dirY;
+      this.x += this.dirX * this.speed;
+      this.y += this.dirY * this.speed;
   }
-  
-  // Method to display bullet
-  display() {
-    // Set image mode to center
-    imageMode(CENTER);
-    // Push and apply transformations
-    push();
-    // Translate to bullet position and rotate based on angle
-    translate(this.x, this.y);
-    rotate(this.angle);
-    // Display bullet image
-    image(bulletsprite, 0, 0, tileSize, tileSize); 
-    // Restore transformation state
-    pop();
+
+  // Render method to draw the bullet
+  render() {
+      // Draw the bullet on the canvas
+      // You'll need to implement this based on your rendering system
+
   }
- 
-  // Method to check if bullet is offscreen
-  isOffscreen() {
-    // Check if bullet is outside the canvas boundaries
-    return (this.x < 0 || this.x > width || this.y < 0 || this.y > height);
-  }
+
 }
+
+// In your game loop, update and render the bullets
+function gameLoop() {
+  
+
+  // Update and render bullets
+  for (let i = 0; i < player.bullets.length; i++) {
+      let bullet = player.bullets[i];
+      bullet.update();
+      bullet.render();
+
+      // Remove bullets that have gone off-screen
+      if (bullet.x < 0 || bullet.x > canvas.width || bullet.y < 0 || bullet.y > canvas.height) {
+          player.bullets.splice(i, 1);
+          i--; // Decrement i to account for removed element
+      }
+  }
+
+ 
+}
+
+// Event listener for spacebar press
+document.addEventListener('keydown', function(event) {
+  if (event.code === 'Space') {
+      player.shootBullet();
+  }
+});
 
 // VARIOUS SCREEN FUNCTIONS
 
