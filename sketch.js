@@ -1,5 +1,5 @@
 // used to organise startup and gameplay screens
-//let gameStatus = 'startup screen',
+let gameStatus = 'startup screen';
 
 //INITIALISE VARIABLES
 let tilemap = [];
@@ -76,14 +76,14 @@ let rats = [];
 ///////////////////////////////////////////////////////////////
 
 function preload() {
-    // game start screen
-    //titleScreen = loadImage("Assets/titlesScreen.jpg");
-    //gameWonScreen = loadImage("Assets/gameWonScreen.jpg");
+    // VARIOUS SCREENS
+    titleScreen = loadImage("Assets/Gamescreens/Startscreen.png");
+    instructionsScreen = loadImage("Assets/Gamescreens/Instructions.png");
+    gameOverScreen = loadImage("Assets/Gamescreens/GameOver.png");
+    gameCompleteScreen = loadImage("Assets/Gamescreens/Endscreen.png");
 
-    // MUSIC AND SOUND EFFECTS
-    //soundFormats('mp3'); // file format for audio - all audio is mp3
+    // MUSIC
     themeSong = loadSound('Assets/ratattacktheme.mp3');
-    //shootSound = loadSound('Assets/SOUND NAME HERE');
 
     ////////////////////////////////////////////////////////
     // IMAGE ASSETS
@@ -311,36 +311,16 @@ function backgroundMusic() {
 }
 
 function draw() {
-
-    // STARTUP AND ENDING SCREENS
-// if (gameStatus === 'startup screen'){
-//     drawStartupScreen();
-//     }else if (gameStatus == 'play'){
-//         drawGame();
-//     } else if (gameStatus == 'won'){
-//         drawGameWon();
-//     }
-
-    // start screen demo version
-// switch(scene){
-//     case 0:
-//         fill(0);
-//         textSize(50);
-//         textAlign(CENTER);
-//         text("RAT ATTACK!", width/1, height/1);
-//         textSize(20);
-//         text("click to start", width/1, height/1);
-//         if(mouseIsPressed){
-//             scene++;
-//         }
-//         break;
-//         case 1:
-//             ellipse(width/2, height/2, 30);
-//             break;
-// }
+    // VARIOUS SCREENS
+if (gameStatus === 'startup screen'){
+    drawStartupScreen();
+    }else if (gameStatus == 'play'){
+        drawGame();
+    } else if (gameStatus == 'won'){
+        drawGameWon();
+    }
 
     background(0);
-    
     // Loops through all tiles each time draw() is called
     for (let across = 0; across < numAcross; across++) {
         for (let down = 0; down < numDown; down++) {
@@ -374,23 +354,21 @@ function draw() {
 
 }
 
-// VARIOUS SCREENS
-// function drawStartupScreen() {
-//     image(titleScreen, 0, 0, 500, 500);
-// }
-
-// function drawGameWon() {
-//     image(gameWonScreen, 0, 0, 500, 500);
-// }
-
 
 
 
 function keyPressed() {
+// PRESS KEYS TO TOGGLE SCREENS/START GAME/REPLAY GAME
+if(gameStatus == 'startup screen'){
+    gameStatus = 'instructions screen';
+}
+if(gameStatus == 'instructions screen'){
+    drawInstructionsScreen();
+    if(gameStatus == 'instructions-screen' && keyCode === 13){
+        gameStatus = 'play';
+    }
+}
 
-// if(gameStatus == 'startup screen' && keyCode === 13){ // if on startup screen, pressing ENTER will trigger game.
-//     gameStatus = 'play';
-// }
     if (key === '  ')   {
     let bullet = new Bullet(player.x, player.y, player.angle);
     bullets.push(bullet);
@@ -818,4 +796,22 @@ class Bullet {
     // Check if bullet is outside the canvas boundaries
     return (this.x < 0 || this.x > width || this.y < 0 || this.y > height);
   }
+}
+
+// VARIOUS SCREEN FUNCTIONS
+
+function drawStartupScreen() {
+    image(titleScreen, 0, 0, 750, 750);
+}
+
+function drawInstructionsScreen() {
+    image(instructionsScreen, 0, 0, 750, 750);
+}
+
+function drawGameOverScreen() {
+    image(gameOverScreen, 0, 0, 750, 750);
+}
+
+function drawGameWon(){
+    image(gameCompleteScreen, 0, 0, 750, 750);
 }
