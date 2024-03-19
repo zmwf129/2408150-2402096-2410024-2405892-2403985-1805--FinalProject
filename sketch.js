@@ -368,6 +368,7 @@ if(gameStatus == 'instructions screen'){
         gameStatus = 'play';
     }
 }
+player.setDirection();
 
     if (key === '  ')   {
     let bullet = new Bullet(player.x, player.y, player.angle);
