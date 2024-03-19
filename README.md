@@ -34,7 +34,7 @@ The player begins the game in a normal-looking sewer. They fight rats--normal on
 Amanda: 
 - Details of game conceptualization (regarding layout and levels), e.g. three levels with gradually stronger, but fewer enemies, with one final boss at the end, where it is revealed that the mutated rats have been drawing their power from improperly disposed nuclear waste. Worked with River to determine the details of where and how assets will be used in the game.
 - Added code to implement starting and game won screens created by Baar based on my own code from a previous project.
-- Audio production (music and SFX) - Composed a simple soundtrack for the game. I will also create sound effects (shooting, impact, etc.) and I will handle the code relating to implementation of audio.
+- Audio production (music and SFX) - Composed and produced a theme for the game using Logic, using ideas and feedback from project members to come up with the tone of the theme. Used preload and custom function backgroundMusic() to play audio in the browser. Had some issues with audio loading, toubleshooted the problem by adding a specific line to index.html, with advice from Velvet.
 - Created moodboard and wrote README (with the exception of the following writing).
 
 Baar:
