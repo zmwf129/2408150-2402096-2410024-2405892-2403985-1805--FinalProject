@@ -72,6 +72,8 @@ let playerSize = tileSize;
 // LVL 1 RATS
 // Had to comment everything to do with the rats other than the rat class becuase it says in the console that rat is not defined
 let rats = [];
+let availableTiles = [];
+let numRats = [1];
 
 ///////////////////////////////////////////////////////////////
 
@@ -277,19 +279,29 @@ function setup() {
 
             tileID++;
         }
-        for (let i = 0; i < 5; i++) {
-            let tileX, tileY;
-            do {
-              tileX = floor(random(tileSize));
-              tileY = floor(random(tileSize));
-            } while (tileSize === 1);
-            
-            let x = tileX * tileSize + tileSize / 1;
-            let y = tileY * tileSize + tileSize / 1;
-            
-            let rat = new Rat(x, y, tileRules);
-            rats.push(rat);
-          }
+        // Find all tiles labelled 0 and store their indices
+for (let down = 0; down < numDown; down++) {
+  for (let across = 0; across < numAcross; across++) {
+      if (tileRules[down][across] === 0) {
+          availableTiles.push({down, across});
+      }
+  }
+
+}
+
+// Shuffle the array of available tiles
+for (let i = availableTiles.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [availableTiles[i], availableTiles[j]] = [availableTiles[j], availableTiles[i]];
+}
+
+// Spawn rats on randomly selected tiles
+for (let i = 0; i < numRats && i < availableTiles.length; i++) {
+  let x = availableTiles[i].across * tileSize + tileSize / 30;
+  let y = availableTiles[i].down * tileSize + tileSize / 30;
+  let rat = new Rat(x, y, tileRules);
+  rats.push(rat);
+}
     
 
         // let rat = new Rat(x, y);
@@ -332,8 +344,10 @@ if (gameStatus === 'startup screen'){
     }
 
     for (var i = 0; i < bullet.length; i++) {
-        bullet[i].show();
-        bullet[i].move();
+
+        bullets[i].show();
+        bullets[i].move();
+
         }
 
     // Finishes looping through all tiles within each draw() loop
@@ -350,6 +364,7 @@ if (gameStatus === 'startup screen'){
 
     for (let i = 0; i < rats.length; i++) {
         rats[i].display();
+
       }
 
 }
@@ -359,21 +374,31 @@ if (gameStatus === 'startup screen'){
 
 function keyPressed() {
 // PRESS KEYS TO TOGGLE SCREENS/START GAME/REPLAY GAME
-if(gameStatus == 'startup screen'){
+
+if(gameStatus == 'startup screen') {
     gameStatus = 'instructions screen';
+
 }
-if(gameStatus == 'instructions screen'){
+
+if(gameStatus == 'instructions screen') {
     drawInstructionsScreen();
+
     if(gameStatus == 'instructions-screen' && keyCode === 13){
         gameStatus = 'play';
+        
     }
+
 }
+
 player.setDirection();
 
-    if (key === '  ')   {
+    if (key === ' ')   {
+
     let bullet = new Bullet(player.x, player.y, player.angle);
-    bullets.push(bullet);
-    }       
+    bullet.push(bullet);
+
+      }       
+
     }
 
 class Player {
@@ -467,12 +492,13 @@ class Player {
         this.bottomRight = {
             x: this.playerRight,
             y: this.playerBottom
+
         }
+
     }
 
     setDirection() {
 
-        
         //Check if we're NOT currently moving...
         if (!this.isMoving) {
             //if not, then let's set the direction the player is travelling!
@@ -531,7 +557,9 @@ class Player {
             nextTileHorizontal < numAcross && //bottom of map
             nextTileVertical >= 0 && //left edge of map
             nextTileVertical < numDown //right edge of map
+
         ) {
+
             //if it is in bounds, have we set it as moveable in our ruleMap:
             if (this.tileRules[nextTileVertical][nextTileHorizontal] != 1) { // remember we have to swap these!
                 //if the target tile is walkable, then...
@@ -678,7 +706,7 @@ class Rat {
                 break;
             default:
                 // Default to forward sprite if direction is unknown
-                image(this.ratSprites.forward, this.x, this.y, this.size, this.size);
+                image(this.ratSprites.forward, this.x, this.y, this.TilesSize, this.tileSize);
                 break;
     }
         //imageMode(CORNER)
@@ -734,17 +762,17 @@ class Rat {
 
 }
 
-for (let i = bullets.length - 1; i >= 0; i--) {
+//for (let i = bullets.length - 1; i >= 0; i--) {
    // Update and display each bullet
-   bullets[i].update();
-   bullets[i].display();
+  // bullets[i].update();
+   //bullets[i].display();
    
    // Check if bullet is offscreen
-   if (bullets[i].isOffscreen()) {
+   //if (bullets[i].isOffscreen()) {
       // Remove bullet from array if it's offscreen
-      bullets.splice(i, 1);
-   }
-}
+     // bullets.splice(i, 1);
+   //}
+//}
 
 // Bullet class definition
 class Bullet {
