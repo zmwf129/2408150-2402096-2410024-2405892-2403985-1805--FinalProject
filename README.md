@@ -33,8 +33,8 @@ The player begins the game in a normal-looking sewer. They fight rats--normal on
 ## INDIVIDUAL CONTRIBUTIONS
 Amanda: 
 - Details of game conceptualization (regarding layout and levels), e.g. three levels with gradually stronger, but fewer enemies, with one final boss at the end, where it is revealed that the mutated rats have been drawing their power from improperly disposed nuclear waste. Worked with River to determine the details of where and how assets will be used in the game. Regularly advised members about how assets could be better designed to reflect the narrative.
-- Added code to implement starting and game won screens created by Baar based on my own code from a previous project.
-- Audio production - Composed and produced a theme for the game using Logic, using ideas and feedback from project members to come up with the tone of the theme. Used preload and custom function backgroundMusic() to play audio in the browser. Had some issues with audio loading, toubleshooted the problem by adding a specific line to index.html, with advice from Velvet.
+- Added code to implement starting and game won screens created by Baar based on my code from a previous project.
+- Composed and produced a theme for the game using Logic, using ideas and feedback from project members to come up with the tone of the theme. While making the song, I was constantly thinking about how the sounds used could reflect and enhance the narrative of the game (for example, using pitched-down cowbell SFX to simulate the sound of banging pipes, applying bitcrush distortion to match the 8-bit style of the game, and adding zappy sounds reminescent of the shooting mechanic). I will attach the Logic file here so that the track can be viewed individually. Used preload and custom function backgroundMusic() to play audio in the browser. Had some issues with audio loading, toubleshooted the problem by adding a specific line to index.html, with advice from Velvet.
 - Created moodboard and wrote README (with the exception of the following writing).
 
 Baar:
