@@ -233,6 +233,28 @@ function preload() {
     textures[86] = loadImage("Assets/PlatformTMRW2.png");
     textures[87] = loadImage("Assets/PlatformTMRW3.png");
     textures[88] = loadImage("Assets/PlatformTMSW.png");
+    
+
+    //Objects In Liquid
+    textures[89] = loadImage("Assets/RadioWRubbish1.png");
+    textures[90] = loadImage("Assets/RadioWRubbish2.png");
+    textures[91] = loadImage("Assets/RadioWRubbish3.png");
+    textures[92] = loadImage("Assets/RadioWRubbish4.png");
+    textures[93] = loadImage("Assets/RadioWRubbish5.png");
+    textures[94] = loadImage("Assets/RadioWRubbish6.png");
+    textures[95] = loadImage("Assets/RadioWRubbish7.png");
+    textures[96] = loadImage("Assets/SewerWRubbish1.png");
+    textures[97] = loadImage("Assets/SewerWRubbish2.png");
+    textures[98] = loadImage("Assets/SewerWRubbish3.png");
+    textures[99] = loadImage("Assets/SewerWRubbish4.png");
+    textures[100] = loadImage("Assets/SewerWterminator.png");
+    textures[101] = loadImage("Assets/SewerWGator.png");
+    textures[102] = loadImage("Assets/RadioW2Bones1.png");
+    textures[103] = loadImage("Assets/RadioW2Bones2.png");
+    textures[104] = loadImage("Assets/RadioWBone1.png");
+    textures[105] = loadImage("Assets/RadioWBone2.png");
+    textures[106] = loadImage("Assets/RadioWBone3.png");
+    textures[107] = loadImage("Assets/RadioWBone4.png");
 
 
     //BULLET SPRITE
@@ -360,11 +382,12 @@ if (gameStatus === 'startup screen'){
 
     player.display();
     player.move();
+    player.update();
 
 
     for (let i = 0; i < rats.length; i++) {
         rats[i].display();
-
+        
       }
 
 }
@@ -406,7 +429,7 @@ player.setDirection();
         let bullet = new Bullet(player.x, player.y, player.angle);
         bullets.push(bullet);
 
-      }       
+}       
 
 >>>>>>> 45c20da83daf44b5f9cc33fe0458a775ef722a5f
     }
@@ -663,9 +686,9 @@ class Player {
         stroke(255,192,203); // pink right
         line(this.topRight.x, this.topRight.y, this.bottomRight.x, this.bottomRight.y);
 
-    }
+      }       
 
-}
+    }
 
 class Tile {
     constructor(texture, across, down, tileSize, tileID) {
@@ -833,15 +856,16 @@ for (let i = bullet.length - 1; i >= 0; i--) {
 
 // Bullet class definition
 class Bullet {
-  constructor(x, y, angle, playerdirection) {
+ constructor(x, y, angle, playerdirection) {
     // Initialize bullet properties
     this.y = Math.round(y / tileSize) * tileSize + tileSize / 2;
     this.x = Math.round(x / tileSize) * tileSize + tileSize / 2;
-    this.speed = 5;
+   this.speed = 5;
     this.angle = angle;
     this.velocity = p5.Vector.fromAngle(angle);
-    this.tilesize = 20;
-
+   this.tilesize = 20;
+ }
+}
 =======
 //for (let i = bullets.length - 1; i >= 0; i--) {
    // Update and display each bullet
@@ -902,6 +926,7 @@ function gameLoop() {
  
 }
 
+>>>>>>> e26d0891d71e18a6088f86d68d48dc7742ff7c98
 // Event listener for spacebar press
 document.addEventListener('keydown', function(event) {
   if (event.code === 'Space') {
