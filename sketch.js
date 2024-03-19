@@ -72,6 +72,8 @@ let playerSize = tileSize;
 // LVL 1 RATS
 // Had to comment everything to do with the rats other than the rat class becuase it says in the console that rat is not defined
 let rats = [];
+let availableTiles = [];
+let numRats = [1];
 
 ///////////////////////////////////////////////////////////////
 
@@ -277,19 +279,29 @@ function setup() {
 
             tileID++;
         }
-        for (let i = 0; i < 5; i++) {
-            let tileX, tileY;
-            do {
-              tileX = floor(random(tileSize));
-              tileY = floor(random(tileSize));
-            } while (tileSize === 1);
-            
-            let x = tileX * tileSize + tileSize / 1;
-            let y = tileY * tileSize + tileSize / 1;
-            
-            let rat = new Rat(x, y, tileRules);
-            rats.push(rat);
-          }
+        // Find all tiles labelled 0 and store their indices
+for (let down = 0; down < numDown; down++) {
+  for (let across = 0; across < numAcross; across++) {
+      if (tileRules[down][across] === 0) {
+          availableTiles.push({down, across});
+      }
+  }
+
+}
+
+// Shuffle the array of available tiles
+for (let i = availableTiles.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [availableTiles[i], availableTiles[j]] = [availableTiles[j], availableTiles[i]];
+}
+
+// Spawn rats on randomly selected tiles
+for (let i = 0; i < numRats && i < availableTiles.length; i++) {
+  let x = availableTiles[i].across * tileSize + tileSize / 30;
+  let y = availableTiles[i].down * tileSize + tileSize / 30;
+  let rat = new Rat(x, y, tileRules);
+  rats.push(rat);
+}
     
 
         // let rat = new Rat(x, y);
@@ -332,8 +344,10 @@ if (gameStatus === 'startup screen'){
     }
 
     for (var i = 0; i < bullet.length; i++) {
-        bullet[i].show();
-        bullet[i].move();
+
+        bullets[i].show();
+        bullets[i].move();
+
         }
 
     // Finishes looping through all tiles within each draw() loop
@@ -350,6 +364,7 @@ if (gameStatus === 'startup screen'){
 
     for (let i = 0; i < rats.length; i++) {
         rats[i].display();
+
       }
 
 }
@@ -359,15 +374,22 @@ if (gameStatus === 'startup screen'){
 
 function keyPressed() {
 // PRESS KEYS TO TOGGLE SCREENS/START GAME/REPLAY GAME
-if(gameStatus == 'startup screen'){
+
+if(gameStatus == 'startup screen') {
     gameStatus = 'instructions screen';
+
 }
-if(gameStatus == 'instructions screen'){
+
+if(gameStatus == 'instructions screen') {
     drawInstructionsScreen();
+
     if(gameStatus == 'instructions-screen' && keyCode === 13){
         gameStatus = 'play';
+        
     }
+
 }
+<<<<<<< HEAD
 player.setDirection()
 
     if (key === ' ')   {
@@ -375,6 +397,18 @@ player.setDirection()
          bullet.push(bullet);
 
     }       
+=======
+
+player.setDirection();
+
+    if (key === ' ')   {
+
+        let bullet = new Bullet(player.x, player.y, player.angle);
+        bullets.push(bullet);
+
+      }       
+
+>>>>>>> 45c20da83daf44b5f9cc33fe0458a775ef722a5f
     }
 
 class Player {
@@ -429,7 +463,37 @@ class Player {
         ////Collision Padding
         this.collisionXPadding = 10;
         this.collisionYPadding = 5;
+
+        this.bullets = [];
+
+  }
+
+  handleCollisions() {
+          
+    // Iterate through all rats
+    for (let i = 0; i < rats.length; i++) {
+        let rat = rats[i];
+
+        // Check for collision between player and rat
+        if (
+            this.bottomLeft.x < rat.bottomRight.x &&
+            this.bottomRight.x > rat.bottomLeft.x &&
+            this.bottomLeft.y < rat.topLeft.y &&
+            this.bottomRight.y > rat.topLeft.y
+        ) {
+            // Collision detected, prevent player from moving to rat's tile
+            this.isMoving = false;
+            this.dirX = 0;
+            this.dirY = 0;
+
+            // Move player back to previous position
+            this.xPos = this.previousXPos;
+            this.yPos = this.previousYPos;
+          }
+
     }
+
+}
 
     update() { 
         //Movement Code
@@ -438,6 +502,8 @@ class Player {
         this.hasPlayerReachedJumpHeight(); // Check is player has reached jump height and should start falling
         this.handleCollisions(); // Chek collisions on x then y axis
         this.move(); // move the damn thing
+
+        this.handleCollisions();
 
         //Display and Debug
         this.display();
@@ -468,12 +534,13 @@ class Player {
         this.bottomRight = {
             x: this.playerRight,
             y: this.playerBottom
+
         }
+
     }
 
     setDirection() {
 
-        
         //Check if we're NOT currently moving...
         if (!this.isMoving) {
             //if not, then let's set the direction the player is travelling!
@@ -532,7 +599,9 @@ class Player {
             nextTileHorizontal < numAcross && //bottom of map
             nextTileVertical >= 0 && //left edge of map
             nextTileVertical < numDown //right edge of map
+
         ) {
+
             //if it is in bounds, have we set it as moveable in our ruleMap:
             if (this.tileRules[nextTileVertical][nextTileHorizontal] != 1) { // remember we have to swap these!
                 //if the target tile is walkable, then...
@@ -570,6 +639,14 @@ class Player {
 
     }
 
+    shootBullet() {
+      // Create a new bullet object
+      let bullet = new Bullet(this.xPos + this.size / 2, this.yPos + this.size / 2, this.dirX, this.dirY);
+      
+      // Add the bullet to the array
+      this.bullets.push(bullet);
+  }
+
     display() {
         imageMode(CORNER);
         image(this.currentSprite, this.xPos, this.yPos, this.size, this.size);
@@ -585,6 +662,7 @@ class Player {
         line(this.topLeft.x, this.topLeft.y, this.bottomLeft.x, this.bottomLeft.y);
         stroke(255,192,203); // pink right
         line(this.topRight.x, this.topRight.y, this.bottomRight.x, this.bottomRight.y);
+
     }
 
 }
@@ -653,18 +731,41 @@ class Rat {
             forward: loadImage("Assets/RatForward.png"),
             downward: loadImage("Assets/RatDownward.png")
         };
-        // Set initial direction
-        this.direction = "forward";
+
+        // Set initial direction randomly
+        let directions = ["left", "right", "forward", "downward"];
+        this.direction = random(directions);
+        
     }
     
-
-    
-    
-    
     display() {
+<<<<<<< HEAD
         // Displays the rats
         image(this.ratSprites.left, this.x, this.y, this.tileSize, this.tileSize);
               
+=======
+   // Display the rat based on its direction
+        //imageMode(CENTER);
+        switch (this.direction) {
+            case "left":
+                image(this.ratSprites.left, this.x, this.y, this.tileSize, this.tileSize);
+                break;
+            case "right":
+                image(this.ratSprites.right, this.x, this.y, this.tileSize, this.tileSize);
+                break;
+            case "forward":
+                image(this.ratSprites.forward, this.x, this.y, this.tileSize, this.tileSize);
+                break;
+            case "downward":
+                image(this.ratSprites.downward, this.x, this.y, this.tileSize, this.tileSize);
+                break;
+            default:
+                // Default to forward sprite if direction is unknown
+                image(this.ratSprites.forward, this.x, this.y, this.TilesSize, this.tileSize);
+                break;
+    }
+        //imageMode(CORNER)
+>>>>>>> 45c20da83daf44b5f9cc33fe0458a775ef722a5f
   }
 
   debug() {
@@ -717,6 +818,7 @@ class Rat {
 
 }
 
+<<<<<<< HEAD
 for (let i = bullet.length - 1; i >= 0; i--) {
    // Update and display each bullet
    bullet[i].update();
@@ -740,54 +842,72 @@ class Bullet {
     this.velocity = p5.Vector.fromAngle(angle);
     this.tilesize = 20;
 
+=======
+//for (let i = bullets.length - 1; i >= 0; i--) {
+   // Update and display each bullet
+  // bullets[i].update();
+   //bullets[i].display();
+   
+   // Check if bullet is offscreen
+   //if (bullets[i].isOffscreen()) {
+      // Remove bullet from array if it's offscreen
+     // bullets.splice(i, 1);
+   //}
+//}
+
+// Bullet class definition
+class Bullet {
+  constructor(x, y, dirX, dirY) {
+      this.x = x;
+      this.y = y;
+      this.dirX = dirX;
+      this.dirY = dirY;
+      this.speed = 5; // Adjust the speed as needed
+      this.size = 5; // Adjust the size as needed
+>>>>>>> 45c20da83daf44b5f9cc33fe0458a775ef722a5f
   }
-  
-  // Method to set bullet direction based on player direction
-  initiatebulletdirection(playerdirection) {
-    // Determine bullet direction based on player direction
-    if (playerdirection == player.sprite.Up){
-      this.dirX = 0;
-      this.dirY = 1;
-    } else if (playerdirection == player.sprite.Down){
-      this.dirX = 0;
-      this.dirY = -1;
-    } else if (playerdirection == player.sprite.Right){
-      this.dirX = 1;
-      this.dirY = 0;
-    } else if (playerdirection == player.sprite.Left){
-      this.dirX = -1;
-      this.dirY = 0;
-    }
-  }  
-  
-  // Method to update bullet position
+
+  // Update method to move the bullet
   update() {
-    // Update bullet position based on velocity and direction
-    this.x += this.velocity.x * this.speed * this.dirX;
-    this.y += this.velocity.y * this.speed * this.dirY;
+      this.x += this.dirX * this.speed;
+      this.y += this.dirY * this.speed;
   }
-  
-  // Method to display bullet
-  display() {
-    // Set image mode to center
-    imageMode(CENTER);
-    // Push and apply transformations
-    push();
-    // Translate to bullet position and rotate based on angle
-    translate(this.x, this.y);
-    rotate(this.angle);
-    // Display bullet image
-    image(bulletsprite, 0, 0, tileSize, tileSize); 
-    // Restore transformation state
-    pop();
+
+  // Render method to draw the bullet
+  render() {
+      // Draw the bullet on the canvas
+      // You'll need to implement this based on your rendering system
+
   }
- 
-  // Method to check if bullet is offscreen
-  isOffscreen() {
-    // Check if bullet is outside the canvas boundaries
-    return (this.x < 0 || this.x > width || this.y < 0 || this.y > height);
-  }
+
 }
+
+// In your game loop, update and render the bullets
+function gameLoop() {
+  
+
+  // Update and render bullets
+  for (let i = 0; i < player.bullets.length; i++) {
+      let bullet = player.bullets[i];
+      bullet.update();
+      bullet.render();
+
+      // Remove bullets that have gone off-screen
+      if (bullet.x < 0 || bullet.x > canvas.width || bullet.y < 0 || bullet.y > canvas.height) {
+          player.bullets.splice(i, 1);
+          i--; // Decrement i to account for removed element
+      }
+  }
+
+ 
+}
+
+// Event listener for spacebar press
+document.addEventListener('keydown', function(event) {
+  if (event.code === 'Space') {
+      player.shootBullet();
+  }
+});
 
 // VARIOUS SCREEN FUNCTIONS
 
