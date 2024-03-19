@@ -749,46 +749,73 @@ class Rat {
 
 }
 
-//BULLET CODE NOT WORKING YET 
+for (let i = bullets.length - 1; i >= 0; i--) {
+   // Update and display each bullet
+   bullets[i].update();
+   bullets[i].display();
+   
+   // Check if bullet is offscreen
+   if (bullets[i].isOffscreen()) {
+      // Remove bullet from array if it's offscreen
+      bullets.splice(i, 1);
+   }
+}
 
-//for (let i = bullets.length - 1; i >= 0; i--) {
-    //bullets[i].update();
-    //bullets[i].display();
-    
-    //if (bullets[i].isOffscreen()) {
-     // bullets.splice(i, 1);
-
-
+// Bullet class definition
 class Bullet {
-  constructor(x, y, angle) {
-    this.y = round(y / tileSize) * tileSize + tileSize / 2;
-    this.x = round(x / tileSize) * tileSize + tileSize / 2;
+  constructor(x, y, angle, playerdirection) {
+    // Initialize bullet properties
+    this.y = math.round(y / tileSize) * tileSize + tileSize / 2;
+    this.x = math.round(x / tileSize) * tileSize + tileSize / 2;
     this.speed = 5;
     this.angle = angle;
     this.velocity = p5.Vector.fromAngle(angle);
-    this.tilesize = 8
-}
+    this.tilesize = 8;
+  }
   
+  // Method to set bullet direction based on player direction
+  initiatebulletdirection(playerdirection) {
+    // Determine bullet direction based on player direction
+    if (playerdirection == player.sprite.Up){
+      this.dirX = 0;
+      this.dirY = 1;
+    } else if (playerdirection == player.sprite.Down){
+      this.dirX = 0;
+      this.dirY = -1;
+    } else if (playerdirection == player.sprite.Right){
+      this.dirX = 1;
+      this.dirY = 0;
+    } else if (playerdirection == player.sprite.Left){
+      this.dirX = -1;
+      this.dirY = 0;
+    }
+  }  
+  
+  // Method to update bullet position
   update() {
-   this.x += this.velocity.x * this.speed;
-   this.y += this.velocity.y * this.speed;
- }
+    // Update bullet position based on velocity and direction
+    this.x += this.velocity.x * this.speed * this.dirX;
+    this.y += this.velocity.y * this.speed * this.dirY;
+  }
   
+  // Method to display bullet
   display() {
-   imageMode(CENTER);
-   push();
-   translate(this.x, this.y);
-   rotate(this.angle);
-   image(bulletsprite, 0, 0, tileSize, tileSize); 
- }
-  
+    // Set image mode to center
+    imageMode(CENTER);
+    // Push and apply transformations
+    push();
+    // Translate to bullet position and rotate based on angle
+    translate(this.x, this.y);
+    rotate(this.angle);
+    // Display bullet image
+    image(bulletsprite, 0, 0, tileSize, tileSize); 
+    // Restore transformation state
+    pop();
+  }
+ 
+  // Method to check if bullet is offscreen
   isOffscreen() {
+    // Check if bullet is outside the canvas boundaries
     return (this.x < 0 || this.x > width || this.y < 0 || this.y > height);
- }
+  }
 }
-
-//enemy = new Enemy (ratSprites, 1, 2, tileSize, ratSpeed, tileSize, tileRules);
-
-// class Boss(){}
-
-
