@@ -368,11 +368,12 @@ if(gameStatus == 'instructions screen'){
         gameStatus = 'play';
     }
 }
-player.setDirection();
+player.setDirection()
 
-    if (key === '  ')   {
-    let bullet = new Bullet(player.x, player.y, player.angle);
-    bullets.push(bullet);
+    if (key === ' ')   {
+        let bullet = new Bullet(player.x, player.y, player.angle);
+         bullet.push(bullet);
+
     }       
     }
 
@@ -661,27 +662,9 @@ class Rat {
     
     
     display() {
-   // Display the rat based on its direction
-        //imageMode(CENTER);
-        switch (this.direction) {
-            case "left":
-                image(this.ratSprites.left, this.x, this.y, this.tileSize, this.tileSize);
-                break;
-            case "right":
-                image(this.ratSprites.right, this.x, this.y, this.tileSize, this.tileSize);
-                break;
-            case "forward":
-                image(this.ratSprites.forward, this.x, this.y, this.tileSize, this.tileSize);
-                break;
-            case "downward":
-                image(this.ratSprites.downward, this.x, this.y, this.tileSize, this.tileSize);
-                break;
-            default:
-                // Default to forward sprite if direction is unknown
-                image(this.ratSprites.forward, this.x, this.y, this.size, this.size);
-                break;
-    }
-        //imageMode(CORNER)
+        // Displays the rats
+        image(this.ratSprites.left, this.x, this.y, this.tileSize, this.tileSize);
+              
   }
 
   debug() {
@@ -734,15 +717,15 @@ class Rat {
 
 }
 
-for (let i = bullets.length - 1; i >= 0; i--) {
+for (let i = bullet.length - 1; i >= 0; i--) {
    // Update and display each bullet
-   bullets[i].update();
-   bullets[i].display();
+   bullet[i].update();
+   bullet[i].display();
    
    // Check if bullet is offscreen
-   if (bullets[i].isOffscreen()) {
+   if (bullet[i].isOffscreen()) {
       // Remove bullet from array if it's offscreen
-      bullets.splice(i, 1);
+      bullet.splice(i, 1);
    }
 }
 
@@ -750,12 +733,13 @@ for (let i = bullets.length - 1; i >= 0; i--) {
 class Bullet {
   constructor(x, y, angle, playerdirection) {
     // Initialize bullet properties
-    this.y = math.round(y / tileSize) * tileSize + tileSize / 2;
-    this.x = math.round(x / tileSize) * tileSize + tileSize / 2;
+    this.y = Math.round(y / tileSize) * tileSize + tileSize / 2;
+    this.x = Math.round(x / tileSize) * tileSize + tileSize / 2;
     this.speed = 5;
     this.angle = angle;
     this.velocity = p5.Vector.fromAngle(angle);
-    this.tilesize = 8;
+    this.tilesize = 20;
+
   }
   
   // Method to set bullet direction based on player direction
