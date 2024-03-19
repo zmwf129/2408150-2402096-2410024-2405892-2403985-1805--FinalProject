@@ -680,13 +680,12 @@ class Rat {
             forward: loadImage("Assets/RatForward.png"),
             downward: loadImage("Assets/RatDownward.png")
         };
-        // Set initial direction
-        this.direction = "forward";
-    }
-    
 
-    
-    
+        // Set initial direction randomly
+        let directions = ["left", "right", "forward", "downward"];
+        this.direction = random(directions);
+        
+    }
     
     display() {
    // Display the rat based on its direction
