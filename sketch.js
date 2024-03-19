@@ -292,13 +292,21 @@ function setup() {
           }
     
 
-        let rat = new Rat(x, y);
-        rats.push(rat);
+        // let rat = new Rat(x, y);
+        // rats.push(rat);
       } // end of tile creation
 
     //Create Player
     player = new Player (playerSprites, 7, 14, tileSize, playerSpeed, tileSize, tileRules);
+   
     
+    backgroundMusic();
+}
+
+function backgroundMusic() {
+    themeSong.play();
+    userStartAudio(); //enables audio
+    themeSong.setVolume(0.7) // set volume 0-1
 }
 
 function draw() {
