@@ -307,6 +307,7 @@ function backgroundMusic() {
     themeSong.play();
     userStartAudio(); //enables audio
     themeSong.setVolume(0.7) // set volume 0-1
+    themeSong.loop(); // self explanatory
 }
 
 function draw() {
