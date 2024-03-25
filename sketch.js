@@ -311,7 +311,7 @@ for (let down = 0; down < numDown; down++) {
 
 }
 
-// Shuffle the array of available tiles
+// Shuffles the array of available tiles
 for (let i = availableTiles.length - 1; i > 0; i--) {
   const j = Math.floor(Math.random() * (i + 1));
   [availableTiles[i], availableTiles[j]] = [availableTiles[j], availableTiles[i]];
